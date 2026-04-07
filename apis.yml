@@ -1,7 +1,12 @@
 aid: taylor-morrison-home
-url: https://raw.githubusercontent.com/api-evangelist/taylor-morrison-home/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/taylor-morrison-home/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.taylor-morrison-home.com
+description: >-
+  Taylor Morrison Home Corporation is a leading national homebuilder and developer
+  that designs and constructs single-family detached and attached homes, communities,
+  and lifestyle developments.
