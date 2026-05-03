@@ -1,0 +1,55 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.taylormorrison.com/api/communities",
+    "headers": {
+      "Accept": "application/json"
+    },
+    "parameters": {
+      "state": "TX",
+      "price_min": 350000,
+      "price_max": 600000,
+      "limit": 3
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "total": 24,
+      "limit": 3,
+      "offset": 0,
+      "communities": [
+        {
+          "community_id": "tm-tx-austin-001",
+          "name": "Lakeline Ranch",
+          "city": "Cedar Park",
+          "state": "TX",
+          "metro": "Austin",
+          "price_from": 389000,
+          "price_to": 549000,
+          "status": "selling",
+          "home_count": 12,
+          "description": "New single-family homes in Cedar Park with resort-style amenities and top-rated Leander ISD schools.",
+          "amenities": ["pool", "playground", "walking-trails", "clubhouse"],
+          "latitude": 30.5591,
+          "longitude": -97.8222
+        },
+        {
+          "community_id": "tm-tx-houston-003",
+          "name": "Cross Creek Ranch",
+          "city": "Fulshear",
+          "state": "TX",
+          "metro": "Houston",
+          "price_from": 420000,
+          "price_to": 590000,
+          "status": "selling",
+          "home_count": 8,
+          "description": "Master-planned community in Fulshear with lakeside living and LCISD schools.",
+          "amenities": ["lake", "fitness-center", "pool", "tennis-courts"],
+          "latitude": 29.6898,
+          "longitude": -95.8956
+        }
+      ]
+    }
+  }
+}

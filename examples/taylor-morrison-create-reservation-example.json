@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://www.taylormorrison.com/api/reservations",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-API-Key": "{api_key}"
+    },
+    "body": {
+      "community_id": "tm-tx-austin-001",
+      "plan_id": "plan-cascade-3br",
+      "lot_id": "lot-42",
+      "buyer_info": {
+        "first_name": "Sarah",
+        "last_name": "Johnson",
+        "email": "sarah.johnson@email.com",
+        "phone": "512-555-0123"
+      },
+      "deposit": 1000,
+      "design_selections": [
+        {"option_id": "ext-001-brick-cream", "quantity": 1},
+        {"option_id": "floor-hardwood-oak", "quantity": 1},
+        {"option_id": "cabinet-white-shaker", "quantity": 1}
+      ]
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "reservation_id": "res-2026050301",
+      "status": "confirmed",
+      "community_id": "tm-tx-austin-001",
+      "plan_id": "plan-cascade-3br",
+      "lot_id": "lot-42",
+      "base_price": 425000,
+      "deposit_amount": 1000,
+      "estimated_close_date": "2026-11-15",
+      "created_at": "2026-05-03T14:30:00Z"
+    }
+  }
+}

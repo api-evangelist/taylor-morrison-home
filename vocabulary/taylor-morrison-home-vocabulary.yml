@@ -1,0 +1,76 @@
+name: Taylor Morrison Home Vocabulary
+description: Domain vocabulary for Taylor Morrison homebuilding and new home purchase workflows, covering communities, floor plans, lots, design studio, and digital homebuying concepts.
+url: https://www.taylormorrison.com/
+version: "1.0"
+created: "2026-05-03"
+modified: "2026-05-03"
+tags:
+  - Homebuilding
+  - Real Estate
+  - New Homes
+  - Communities
+terms:
+  - term: Community
+    definition: "A planned residential development built by Taylor Morrison. A community contains available lots, model homes, floor plans, and amenities. Communities are organized by metro area and state."
+    type: concept
+    domain: Real Estate
+  - term: Floor Plan
+    definition: "A design template for a home specifying the number of bedrooms, bathrooms, total square footage, stories, and layout. Buyers select a floor plan and customize it with structural options and design selections."
+    type: concept
+    domain: Homebuilding
+  - term: Lot
+    definition: "A specific parcel of land within a Taylor Morrison community on which a to-be-built home can be constructed. Each lot has a number, size, position, and potentially a price premium."
+    type: concept
+    domain: Real Estate
+  - term: Lot Premium
+    definition: "An additional cost above the base home price for selecting a desirable lot, such as a corner lot, greenbelt backing, or lake view."
+    type: concept
+    domain: Pricing
+  - term: Quick Move-In (QMI)
+    definition: "A home that is already under construction or complete and ready for purchase without a lengthy build timeline. Also called inventory homes or move-in ready homes."
+    type: concept
+    domain: Homebuilding
+  - term: To-Be-Built
+    definition: "A home that has not yet started construction. The buyer selects the floor plan, lot, and all design options before construction begins. Enabled by Taylor Morrison's online reservation system."
+    type: concept
+    domain: Homebuilding
+  - term: Model Home
+    definition: "A professionally furnished and decorated example home in a community used to showcase design options and floor plan possibilities to prospective buyers."
+    type: concept
+    domain: Marketing
+  - term: Design Studio
+    definition: "Taylor Morrison's online and in-person tool for personalizing a home. Buyers select structural options (room additions, bay windows), exterior design (brick, siding, color), and interior finishes (flooring, cabinets, countertops)."
+    type: platform
+    domain: Homebuilding
+  - term: Structural Option
+    definition: "A modification to a floor plan's physical structure, such as adding a bedroom, extended covered patio, or bonus room. Must be selected during the pre-construction phase."
+    type: concept
+    domain: Design
+  - term: Reservation
+    definition: "A formal online commitment by a buyer to purchase a specific Taylor Morrison home (lot and floor plan combination) with a small deposit. Part of the industry-first digital homebuying flow."
+    type: concept
+    domain: Sales
+  - term: TMHF
+    definition: "Taylor Morrison Home Funding — the company's in-house mortgage lending subsidiary, offering financing through the homebuying process with Fannie Mae Day 1 Certainty integration for faster approvals."
+    type: organization
+    domain: Mortgage
+  - term: Day 1 Certainty
+    definition: "Fannie Mae's technology framework for automated income and asset verification, used by TMHF to reduce mortgage Application-to-Approval time by up to five business days."
+    type: concept
+    domain: Mortgage
+  - term: Venture Community
+    definition: "Taylor Morrison's next-generation community concept offering a fully digital homebuying platform with virtual guidance and maximum buyer autonomy. First launched in the Pacific Northwest and California."
+    type: concept
+    domain: Innovation
+  - term: America's Most Trusted Home Builder
+    definition: "Award recognizing Taylor Morrison's brand trust, held for eleven consecutive years (2016-2026) based on the Lifestory Research Most Trusted Brand study."
+    type: award
+    domain: Brand
+  - term: Exterior Elevation
+    definition: "The external appearance and architectural style of a home. Buyers choose from multiple elevation options per floor plan, varying rooflines, siding materials, stone accents, and color schemes."
+    type: concept
+    domain: Design
+  - term: HOA
+    definition: "Homeowners Association. Many Taylor Morrison communities have an HOA that maintains common areas, enforces community standards, and may provide shared amenities like pools and parks."
+    type: concept
+    domain: Communities

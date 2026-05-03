@@ -1,0 +1,21 @@
+{
+  "name": "Taylor Morrison Home",
+  "description": "Structure documentation for a Taylor Morrison new home listing",
+  "fields": [
+    {"name": "home_id", "type": "string", "required": true, "description": "Unique home identifier"},
+    {"name": "community_id", "type": "string", "required": true, "description": "Parent community ID"},
+    {"name": "address", "type": "string", "required": false, "description": "Street address if assigned"},
+    {"name": "status", "type": "string", "required": true, "description": "available, pending, model, under-construction, or to-be-built"},
+    {"name": "price", "type": "integer", "required": false, "description": "Base price in USD"},
+    {"name": "bedrooms", "type": "integer", "required": false, "description": "Number of bedrooms"},
+    {"name": "bathrooms", "type": "number", "required": false, "description": "Number of bathrooms (0.5 = half bath)"},
+    {"name": "sqft", "type": "integer", "required": false, "description": "Total square footage"},
+    {"name": "stories", "type": "integer", "required": false, "description": "Number of stories"},
+    {"name": "garage", "type": "integer", "required": false, "description": "Garage car spaces"},
+    {"name": "floor_plan_id", "type": "string", "required": false, "description": "Reference to floor plan"},
+    {"name": "lot_id", "type": "string", "required": false, "description": "Assigned lot"},
+    {"name": "images", "type": "array<uri>", "required": false, "description": "Home photo URLs"},
+    {"name": "virtual_tour_url", "type": "string(uri)", "required": false, "description": "3D virtual tour URL"},
+    {"name": "estimated_completion", "type": "date", "required": false, "description": "Completion date for under-construction"}
+  ]
+}

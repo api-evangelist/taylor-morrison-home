@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "tm": "https://www.taylormorrison.com/vocab/",
+    "Residence": "schema:Residence",
+    "House": "schema:House",
+    "homeId": "tm:homeId",
+    "communityId": "tm:communityId",
+    "lotId": "tm:lotId",
+    "floorPlanId": "tm:floorPlanId",
+    "constructionStatus": "tm:constructionStatus",
+    "bedrooms": "schema:numberOfRooms",
+    "bathrooms": "schema:numberOfBathroomsTotal",
+    "sqft": "schema:floorSize",
+    "price": "schema:price",
+    "address": "schema:address",
+    "images": "schema:image",
+    "virtualTourUrl": "schema:virtualTourUrl",
+    "Community": "tm:Community",
+    "FloorPlan": "tm:FloorPlan",
+    "Lot": "tm:Lot",
+    "Reservation": "tm:Reservation",
+    "DesignOption": "tm:DesignOption",
+    "amenities": "schema:amenityFeature",
+    "estimatedCompletion": "schema:dateCreated",
+    "LandmarksOrHistoricalBuildings": "schema:LandmarksOrHistoricalBuildings",
+    "RealEstateListing": "schema:RealEstateListing",
+    "geo": "schema:geo",
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude"
+  }
+}

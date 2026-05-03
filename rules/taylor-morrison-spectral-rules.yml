@@ -1,0 +1,79 @@
+rules:
+  taylor-morrison-operation-ids-camel-case:
+    description: Operation IDs must use camelCase
+    message: "operationId '{{value}}' must use camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  taylor-morrison-path-kebab-case:
+    description: Path segments must use kebab-case
+    message: "Path segment must use kebab-case: {{path}}"
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(/[a-z0-9{}-]+)*$"
+
+  taylor-morrison-operation-summary-exists:
+    description: All operations must have a summary
+    message: "Operation '{{path}}' is missing a summary"
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: summary
+      function: truthy
+
+  taylor-morrison-operation-description-exists:
+    description: All operations must have a description
+    message: "Operation '{{path}}' is missing a description"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  taylor-morrison-responses-success:
+    description: All operations must define a success response
+    message: "Operation '{{path}}' must define a 200 or 201 response"
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["200"]
+            - required: ["201"]
+
+  taylor-morrison-tags-title-case:
+    description: Tags must use Title Case
+    message: "Tag '{{value}}' must use Title Case"
+    severity: warn
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 ]*$"
+
+  taylor-morrison-parameters-description:
+    description: All parameters must have descriptions
+    message: "Parameter '{{value}}' is missing a description"
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  taylor-morrison-info-contact:
+    description: API must include contact info
+    message: "API info must include contact details"
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy

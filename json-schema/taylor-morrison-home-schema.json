@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.taylormorrison.com/schemas/home",
+  "title": "Taylor Morrison Home",
+  "description": "A new home listing in a Taylor Morrison community, including move-in ready, under construction, and to-be-built homes.",
+  "type": "object",
+  "required": ["home_id", "community_id", "status"],
+  "properties": {
+    "home_id": {
+      "type": "string",
+      "description": "Unique Taylor Morrison home identifier"
+    },
+    "community_id": {
+      "type": "string",
+      "description": "Community this home belongs to"
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address if assigned (available for existing inventory)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["available", "pending", "model", "under-construction", "to-be-built"],
+      "description": "Home availability and construction status"
+    },
+    "price": {
+      "type": "integer",
+      "description": "Base price in USD",
+      "minimum": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "description": "Number of bedrooms",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "bathrooms": {
+      "type": "number",
+      "description": "Number of bathrooms (may include half baths as .5)",
+      "minimum": 1
+    },
+    "sqft": {
+      "type": "integer",
+      "description": "Total square footage",
+      "minimum": 500
+    },
+    "stories": {
+      "type": "integer",
+      "description": "Number of stories",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "garage": {
+      "type": "integer",
+      "description": "Number of garage car spaces",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "floor_plan_id": {
+      "type": "string",
+      "description": "Reference to the floor plan"
+    },
+    "lot_id": {
+      "type": "string",
+      "description": "Assigned lot identifier"
+    },
+    "images": {
+      "type": "array",
+      "items": {"type": "string", "format": "uri"},
+      "description": "Home image URLs"
+    },
+    "virtual_tour_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "3D virtual tour URL"
+    },
+    "estimated_completion": {
+      "type": "string",
+      "format": "date",
+      "description": "Estimated completion date for under-construction homes"
+    }
+  }
+}
