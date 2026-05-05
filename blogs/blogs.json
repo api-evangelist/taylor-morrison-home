@@ -1,0 +1,13 @@
+{
+  "repo": "taylor-morrison-home",
+  "feeds": [
+    {
+      "source": "https://blog.taylormorrison.com/",
+      "feed_url": "https://blog.taylormorrison.com/feed/",
+      "saved": 10,
+      "title": "Second House on the Right"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:37:21Z"
+}
