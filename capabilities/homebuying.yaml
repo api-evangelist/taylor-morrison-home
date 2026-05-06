@@ -1,236 +1,415 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Taylor Morrison Digital Homebuying"
-  description: >-
-    End-to-end digital homebuying workflow capability for Taylor Morrison. Combines
-    community search, floor plan browsing, lot selection, design studio, and online
-    reservation into a unified integration experience for real estate platforms,
+  label: Taylor Morrison Digital Homebuying
+  description: End-to-end digital homebuying workflow capability for Taylor Morrison. Combines community search, floor plan
+    browsing, lot selection, design studio, and online reservation into a unified integration experience for real estate platforms,
     mortgage lenders, and homebuying tools.
   tags:
-    - Communities
-    - Design Studio
-    - Digital Homebuying
-    - Floor Plans
-    - Homebuilding
-    - New Homes
-    - Real Estate
-    - Reservations
-    - Taylor Morrison
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - Communities
+  - Design Studio
+  - Digital Homebuying
+  - Floor Plans
+  - Homebuilding
+  - New Homes
+  - Real Estate
+  - Reservations
+  - Taylor Morrison
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      TAYLOR_MORRISON_API_KEY: TAYLOR_MORRISON_API_KEY
-
+- namespace: env
+  keys:
+    TAYLOR_MORRISON_API_KEY: TAYLOR_MORRISON_API_KEY
 capability:
   consumes:
-    - import: taylor-morrison
-      location: ./shared/taylor-morrison-api.yaml
-
+  - type: http
+    namespace: taylor-morrison
+    baseUri: https://www.taylormorrison.com/api
+    description: Taylor Morrison homebuying platform API
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{TAYLOR_MORRISON_API_KEY}}'
+      placement: header
+    resources:
+    - name: communities
+      path: /communities
+      description: New home communities
+      operations:
+      - name: list-communities
+        method: GET
+        description: List communities filtered by state, city, price
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+          required: false
+          description: State code filter
+        - name: city
+          in: query
+          type: string
+          required: false
+          description: City filter
+        - name: price_min
+          in: query
+          type: integer
+          required: false
+          description: Minimum price
+        - name: price_max
+          in: query
+          type: integer
+          required: false
+          description: Maximum price
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Max results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: community-detail
+      path: /communities/{community_id}
+      description: Community detail
+      operations:
+      - name: get-community
+        method: GET
+        description: Get community details
+        inputParameters:
+        - name: community_id
+          in: path
+          type: string
+          required: true
+          description: Community ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: homes
+      path: /homes
+      description: Available homes
+      operations:
+      - name: list-homes
+        method: GET
+        description: List available homes
+        inputParameters:
+        - name: community_id
+          in: query
+          type: string
+          required: false
+          description: Community filter
+        - name: status
+          in: query
+          type: string
+          required: false
+          description: Home status filter
+        - name: bedrooms
+          in: query
+          type: integer
+          required: false
+          description: Bedroom count
+        - name: price_min
+          in: query
+          type: integer
+          required: false
+          description: Min price
+        - name: price_max
+          in: query
+          type: integer
+          required: false
+          description: Max price
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: floor-plans
+      path: /floor-plans
+      description: Floor plan catalog
+      operations:
+      - name: list-floor-plans
+        method: GET
+        description: List floor plans
+        inputParameters:
+        - name: community_id
+          in: query
+          type: string
+          required: false
+          description: Community filter
+        - name: bedrooms
+          in: query
+          type: integer
+          required: false
+          description: Bedroom count
+        - name: sqft_min
+          in: query
+          type: integer
+          required: false
+          description: Min sqft
+        - name: sqft_max
+          in: query
+          type: integer
+          required: false
+          description: Max sqft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reservations
+      path: /reservations
+      description: Online home reservations
+      operations:
+      - name: list-reservations
+        method: GET
+        description: List buyer reservations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-reservation
+        method: POST
+        description: Create online home reservation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            community_id: '{{tools.community_id}}'
+            plan_id: '{{tools.plan_id}}'
+            lot_id: '{{tools.lot_id}}'
+            buyer_info: '{{tools.buyer_info}}'
+            deposit: '{{tools.deposit}}'
+    - name: design-options
+      path: /design/options
+      description: Design studio selections
+      operations:
+      - name: list-design-options
+        method: GET
+        description: List design options for a floor plan
+        inputParameters:
+        - name: plan_id
+          in: query
+          type: string
+          required: true
+          description: Floor plan ID
+        - name: category
+          in: query
+          type: string
+          required: false
+          description: Option category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8082
-      namespace: taylor-morrison-homebuying-api
-      description: "Unified REST API for Taylor Morrison digital homebuying workflows."
-      resources:
-        - path: /v1/communities
-          name: communities
-          description: "Search and browse Taylor Morrison communities"
-          operations:
-            - method: GET
-              name: list-communities
-              description: "Find communities by location and price range"
-              call: "taylor-morrison.list-communities"
-              with:
-                state: "rest.state"
-                city: "rest.city"
-                metro: "rest.metro"
-                price_min: "rest.price_min"
-                price_max: "rest.price_max"
-                limit: "rest.limit"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/communities/{community_id}
-          name: community-detail
-          description: "Community detail and amenities"
-          operations:
-            - method: GET
-              name: get-community
-              description: "Get community details"
-              call: "taylor-morrison.get-community"
-              with:
-                community_id: "rest.community_id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/homes
-          name: homes
-          description: "Available and to-be-built homes"
-          operations:
-            - method: GET
-              name: list-homes
-              description: "Browse available homes by filters"
-              call: "taylor-morrison.list-homes"
-              with:
-                community_id: "rest.community_id"
-                status: "rest.status"
-                bedrooms: "rest.bedrooms"
-                price_min: "rest.price_min"
-                price_max: "rest.price_max"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/floor-plans
-          name: floor-plans
-          description: "Floor plan catalog"
-          operations:
-            - method: GET
-              name: list-floor-plans
-              description: "Browse floor plans"
-              call: "taylor-morrison.list-floor-plans"
-              with:
-                community_id: "rest.community_id"
-                bedrooms: "rest.bedrooms"
-                sqft_min: "rest.sqft_min"
-                sqft_max: "rest.sqft_max"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/design/options
-          name: design-options
-          description: "Design studio options for personalization"
-          operations:
-            - method: GET
-              name: list-design-options
-              description: "Get design options by floor plan and category"
-              call: "taylor-morrison.list-design-options"
-              with:
-                plan_id: "rest.plan_id"
-                category: "rest.category"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/reservations
-          name: reservations
-          description: "Online home reservations"
-          operations:
-            - method: GET
-              name: list-reservations
-              description: "View existing reservations"
-              call: "taylor-morrison.list-reservations"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-reservation
-              description: "Reserve a home online"
-              call: "taylor-morrison.create-reservation"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9082
-      namespace: taylor-morrison-homebuying-mcp
-      transport: http
-      description: "MCP server for AI-assisted Taylor Morrison homebuying experience."
-      tools:
-        - name: search-communities
-          description: "Search Taylor Morrison new home communities by location, price range, or amenities"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "taylor-morrison.list-communities"
-          with:
-            state: "tools.state"
-            city: "tools.city"
-            metro: "tools.metro"
-            price_min: "tools.price_min"
-            price_max: "tools.price_max"
-            bedrooms: "tools.bedrooms"
-            limit: "tools.limit"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-community-details
-          description: "Get details about a specific Taylor Morrison community including amenities, pricing, and available homes"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "taylor-morrison.get-community"
-          with:
-            community_id: "tools.community_id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: browse-available-homes
-          description: "Browse available and quick-move-in homes with bedroom count, price, and square footage filters"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "taylor-morrison.list-homes"
-          with:
-            community_id: "tools.community_id"
-            status: "tools.status"
-            bedrooms: "tools.bedrooms"
-            price_min: "tools.price_min"
-            price_max: "tools.price_max"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: browse-floor-plans
-          description: "Explore Taylor Morrison floor plans by size, bedroom count, and stories"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "taylor-morrison.list-floor-plans"
-          with:
-            community_id: "tools.community_id"
-            bedrooms: "tools.bedrooms"
-            sqft_min: "tools.sqft_min"
-            sqft_max: "tools.sqft_max"
-            stories: "tools.stories"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-design-options
-          description: "View personalization options for a floor plan — exterior, flooring, cabinets, countertops, and more"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "taylor-morrison.list-design-options"
-          with:
-            plan_id: "tools.plan_id"
-            category: "tools.category"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: reserve-home-online
-          description: "Reserve a Taylor Morrison home digitally with lot selection, design choices, and deposit"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "taylor-morrison.create-reservation"
-          with:
-            community_id: "tools.community_id"
-            plan_id: "tools.plan_id"
-            lot_id: "tools.lot_id"
-            buyer_info: "tools.buyer_info"
-            deposit: "tools.deposit"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: view-reservations
-          description: "View existing Taylor Morrison home reservations and their status"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "taylor-morrison.list-reservations"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8082
+    namespace: taylor-morrison-homebuying-api
+    description: Unified REST API for Taylor Morrison digital homebuying workflows.
+    resources:
+    - path: /v1/communities
+      name: communities
+      description: Search and browse Taylor Morrison communities
+      operations:
+      - method: GET
+        name: list-communities
+        description: Find communities by location and price range
+        call: taylor-morrison.list-communities
+        with:
+          state: rest.state
+          city: rest.city
+          metro: rest.metro
+          price_min: rest.price_min
+          price_max: rest.price_max
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/communities/{community_id}
+      name: community-detail
+      description: Community detail and amenities
+      operations:
+      - method: GET
+        name: get-community
+        description: Get community details
+        call: taylor-morrison.get-community
+        with:
+          community_id: rest.community_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/homes
+      name: homes
+      description: Available and to-be-built homes
+      operations:
+      - method: GET
+        name: list-homes
+        description: Browse available homes by filters
+        call: taylor-morrison.list-homes
+        with:
+          community_id: rest.community_id
+          status: rest.status
+          bedrooms: rest.bedrooms
+          price_min: rest.price_min
+          price_max: rest.price_max
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/floor-plans
+      name: floor-plans
+      description: Floor plan catalog
+      operations:
+      - method: GET
+        name: list-floor-plans
+        description: Browse floor plans
+        call: taylor-morrison.list-floor-plans
+        with:
+          community_id: rest.community_id
+          bedrooms: rest.bedrooms
+          sqft_min: rest.sqft_min
+          sqft_max: rest.sqft_max
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/design/options
+      name: design-options
+      description: Design studio options for personalization
+      operations:
+      - method: GET
+        name: list-design-options
+        description: Get design options by floor plan and category
+        call: taylor-morrison.list-design-options
+        with:
+          plan_id: rest.plan_id
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reservations
+      name: reservations
+      description: Online home reservations
+      operations:
+      - method: GET
+        name: list-reservations
+        description: View existing reservations
+        call: taylor-morrison.list-reservations
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-reservation
+        description: Reserve a home online
+        call: taylor-morrison.create-reservation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9082
+    namespace: taylor-morrison-homebuying-mcp
+    transport: http
+    description: MCP server for AI-assisted Taylor Morrison homebuying experience.
+    tools:
+    - name: search-communities
+      description: Search Taylor Morrison new home communities by location, price range, or amenities
+      hints:
+        readOnly: true
+        openWorld: true
+      call: taylor-morrison.list-communities
+      with:
+        state: tools.state
+        city: tools.city
+        metro: tools.metro
+        price_min: tools.price_min
+        price_max: tools.price_max
+        bedrooms: tools.bedrooms
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-community-details
+      description: Get details about a specific Taylor Morrison community including amenities, pricing, and available homes
+      hints:
+        readOnly: true
+        openWorld: true
+      call: taylor-morrison.get-community
+      with:
+        community_id: tools.community_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: browse-available-homes
+      description: Browse available and quick-move-in homes with bedroom count, price, and square footage filters
+      hints:
+        readOnly: true
+        openWorld: true
+      call: taylor-morrison.list-homes
+      with:
+        community_id: tools.community_id
+        status: tools.status
+        bedrooms: tools.bedrooms
+        price_min: tools.price_min
+        price_max: tools.price_max
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: browse-floor-plans
+      description: Explore Taylor Morrison floor plans by size, bedroom count, and stories
+      hints:
+        readOnly: true
+        openWorld: true
+      call: taylor-morrison.list-floor-plans
+      with:
+        community_id: tools.community_id
+        bedrooms: tools.bedrooms
+        sqft_min: tools.sqft_min
+        sqft_max: tools.sqft_max
+        stories: tools.stories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-design-options
+      description: View personalization options for a floor plan — exterior, flooring, cabinets, countertops, and more
+      hints:
+        readOnly: true
+        openWorld: false
+      call: taylor-morrison.list-design-options
+      with:
+        plan_id: tools.plan_id
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reserve-home-online
+      description: Reserve a Taylor Morrison home digitally with lot selection, design choices, and deposit
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: taylor-morrison.create-reservation
+      with:
+        community_id: tools.community_id
+        plan_id: tools.plan_id
+        lot_id: tools.lot_id
+        buyer_info: tools.buyer_info
+        deposit: tools.deposit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: view-reservations
+      description: View existing Taylor Morrison home reservations and their status
+      hints:
+        readOnly: true
+        openWorld: false
+      call: taylor-morrison.list-reservations
+      outputParameters:
+      - type: object
+        mapping: $.
