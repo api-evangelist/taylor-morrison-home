@@ -1,0 +1,149 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taylor Morrison Home Search API — Reservations
+  description: 'Taylor Morrison Home Search API — Reservations. 3 operations. Lead operation: Create Reservation. Self-contained
+    Naftiko capability covering one Taylor Morrison Home business surface.'
+  tags:
+  - Taylor Morrison Home
+  - Reservations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TAYLOR_MORRISON_HOME_API_KEY: TAYLOR_MORRISON_HOME_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-reservations
+    baseUri: https://www.taylormorrison.com/api
+    description: Taylor Morrison Home Search API — Reservations business capability. Self-contained, no shared references.
+    resources:
+    - name: reservations
+      path: /reservations
+      operations:
+      - name: createreservation
+        method: POST
+        description: Create Reservation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listreservations
+        method: GET
+        description: List Reservations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reservations-reservation_id
+      path: /reservations/{reservation_id}
+      operations:
+      - name: getreservation
+        method: GET
+        description: Get Reservation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: reservation_id
+          in: path
+          type: string
+          description: Reservation identifier
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.TAYLOR_MORRISON_HOME_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: search-reservations-rest
+    port: 8080
+    description: REST adapter for Taylor Morrison Home Search API — Reservations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/reservations
+      name: reservations
+      description: REST surface for reservations.
+      operations:
+      - method: POST
+        name: createreservation
+        description: Create Reservation
+        call: search-reservations.createreservation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listreservations
+        description: List Reservations
+        call: search-reservations.listreservations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reservations/{reservation-id}
+      name: reservations-reservation-id
+      description: REST surface for reservations-reservation_id.
+      operations:
+      - method: GET
+        name: getreservation
+        description: Get Reservation
+        call: search-reservations.getreservation
+        with:
+          reservation_id: rest.reservation_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-reservations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Taylor Morrison Home Search API — Reservations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: create-reservation
+      description: Create Reservation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: search-reservations.createreservation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-reservations
+      description: List Reservations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-reservations.listreservations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-reservation
+      description: Get Reservation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-reservations.getreservation
+      with:
+        reservation_id: tools.reservation_id
+      outputParameters:
+      - type: object
+        mapping: $.

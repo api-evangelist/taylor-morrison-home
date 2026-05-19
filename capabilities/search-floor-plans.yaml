@@ -1,0 +1,159 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taylor Morrison Home Search API — Floor Plans
+  description: 'Taylor Morrison Home Search API — Floor Plans. 2 operations. Lead operation: List Floor Plans. Self-contained
+    Naftiko capability covering one Taylor Morrison Home business surface.'
+  tags:
+  - Taylor Morrison Home
+  - Floor Plans
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TAYLOR_MORRISON_HOME_API_KEY: TAYLOR_MORRISON_HOME_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-floor-plans
+    baseUri: https://www.taylormorrison.com/api
+    description: Taylor Morrison Home Search API — Floor Plans business capability. Self-contained, no shared references.
+    resources:
+    - name: floor-plans
+      path: /floor-plans
+      operations:
+      - name: listfloorplans
+        method: GET
+        description: List Floor Plans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: community_id
+          in: query
+          type: string
+          description: Filter by community
+        - name: bedrooms
+          in: query
+          type: integer
+          description: Number of bedrooms
+        - name: bathrooms
+          in: query
+          type: number
+          description: Number of bathrooms
+        - name: sqft_min
+          in: query
+          type: integer
+          description: Minimum square footage
+        - name: sqft_max
+          in: query
+          type: integer
+          description: Maximum square footage
+        - name: stories
+          in: query
+          type: integer
+          description: Number of stories
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum floor plans to return
+    - name: floor-plans-plan_id
+      path: /floor-plans/{plan_id}
+      operations:
+      - name: getfloorplan
+        method: GET
+        description: Get Floor Plan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: plan_id
+          in: path
+          type: string
+          description: Floor plan identifier
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.TAYLOR_MORRISON_HOME_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: search-floor-plans-rest
+    port: 8080
+    description: REST adapter for Taylor Morrison Home Search API — Floor Plans. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/floor-plans
+      name: floor-plans
+      description: REST surface for floor-plans.
+      operations:
+      - method: GET
+        name: listfloorplans
+        description: List Floor Plans
+        call: search-floor-plans.listfloorplans
+        with:
+          community_id: rest.community_id
+          bedrooms: rest.bedrooms
+          bathrooms: rest.bathrooms
+          sqft_min: rest.sqft_min
+          sqft_max: rest.sqft_max
+          stories: rest.stories
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/floor-plans/{plan-id}
+      name: floor-plans-plan-id
+      description: REST surface for floor-plans-plan_id.
+      operations:
+      - method: GET
+        name: getfloorplan
+        description: Get Floor Plan
+        call: search-floor-plans.getfloorplan
+        with:
+          plan_id: rest.plan_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-floor-plans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Taylor Morrison Home Search API — Floor Plans. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-floor-plans
+      description: List Floor Plans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-floor-plans.listfloorplans
+      with:
+        community_id: tools.community_id
+        bedrooms: tools.bedrooms
+        bathrooms: tools.bathrooms
+        sqft_min: tools.sqft_min
+        sqft_max: tools.sqft_max
+        stories: tools.stories
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-floor-plan
+      description: Get Floor Plan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-floor-plans.getfloorplan
+      with:
+        plan_id: tools.plan_id
+      outputParameters:
+      - type: object
+        mapping: $.

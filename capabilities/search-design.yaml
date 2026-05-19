@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taylor Morrison Home Search API — Design
+  description: 'Taylor Morrison Home Search API — Design. 1 operations. Lead operation: List Design Options. Self-contained
+    Naftiko capability covering one Taylor Morrison Home business surface.'
+  tags:
+  - Taylor Morrison Home
+  - Design
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TAYLOR_MORRISON_HOME_API_KEY: TAYLOR_MORRISON_HOME_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-design
+    baseUri: https://www.taylormorrison.com/api
+    description: Taylor Morrison Home Search API — Design business capability. Self-contained, no shared references.
+    resources:
+    - name: design-options
+      path: /design/options
+      operations:
+      - name: listdesignoptions
+        method: GET
+        description: List Design Options
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: plan_id
+          in: query
+          type: string
+          description: Floor plan to get options for
+          required: true
+        - name: category
+          in: query
+          type: string
+          description: Option category filter
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.TAYLOR_MORRISON_HOME_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: search-design-rest
+    port: 8080
+    description: REST adapter for Taylor Morrison Home Search API — Design. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/design/options
+      name: design-options
+      description: REST surface for design-options.
+      operations:
+      - method: GET
+        name: listdesignoptions
+        description: List Design Options
+        call: search-design.listdesignoptions
+        with:
+          plan_id: rest.plan_id
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-design-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Taylor Morrison Home Search API — Design. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-design-options
+      description: List Design Options
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-design.listdesignoptions
+      with:
+        plan_id: tools.plan_id
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
