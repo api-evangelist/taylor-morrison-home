@@ -2,12 +2,20 @@
   "repo": "taylor-morrison-home",
   "feeds": [
     {
-      "source": "https://blog.taylormorrison.com/",
+      "source": "https://blog.taylormorrison.com/feed/",
       "feed_url": "https://blog.taylormorrison.com/feed/",
-      "title": "Second House on the Right",
-      "saved": 5
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.taylormorrison.com/",
+      "feed_url": "https://www.taylormorrison.com/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 15,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 16,
+  "fetched": "2026-06-01T23:35:02Z"
 }
