@@ -1,0 +1,2013 @@
+{
+  "item": [
+    {
+      "id": "0b6dc5ad-dbbb-4598-b0ac-cfb7d6d65a5b",
+      "name": "Communities",
+      "description": {
+        "content": "New home community search and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2dbee1f5-c8c9-455b-92dc-d3af6365a50c",
+          "name": "List Communities",
+          "request": {
+            "name": "List Communities",
+            "description": {
+              "content": "Returns a list of active Taylor Morrison communities filtered by state, city, metro area, or price range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "communities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Two-letter state code filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "City name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "metro",
+                  "value": "<string>",
+                  "description": "Metropolitan area name"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_min",
+                  "value": "<integer>",
+                  "description": "Minimum home price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_max",
+                  "value": "<integer>",
+                  "description": "Maximum home price"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Minimum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum communities to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c711648-eb00-41d4-a7c5-ffa86c60f766",
+              "name": "List of communities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metro",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"communities\": [\n    {\n      \"community_id\": \"string\",\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"metro\": \"string\",\n      \"price_from\": 4454,\n      \"price_to\": 416,\n      \"status\": \"coming-soon\",\n      \"home_count\": 9798,\n      \"description\": \"string\",\n      \"images\": [\n        \"http://JcW.aemARKhENtB6QD\",\n        \"https://xvivWpQ.tplcoKofmnkTCWclYFPmryDLFiC5d2.3UuUBioMW4IWNjFdzoAHyW92WLSxfOD\"\n      ],\n      \"amenities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 1438.655450146127,\n      \"longitude\": 4850.748864274456\n    },\n    {\n      \"community_id\": \"string\",\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"metro\": \"string\",\n      \"price_from\": 7766,\n      \"price_to\": 1238,\n      \"status\": \"selling\",\n      \"home_count\": 353,\n      \"description\": \"string\",\n      \"images\": [\n        \"https://HMOVlJbZvotBECHjzzcBUySpGnluNHs.xjsoMd6xWGWOGK5mV7bAJ\",\n        \"https://UUqAtQU.vwmCDVa0COs1bt-B8VAdjY1tfPWiJbxbk6D-VZrQiki-vm88xmQgVruKSg\"\n      ],\n      \"amenities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 4700.747417613529,\n      \"longitude\": 522.2453772878566\n    }\n  ],\n  \"total\": 1955,\n  \"limit\": 5974,\n  \"offset\": 8649\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47acb35b-bac5-4b4f-b303-0937281f8c1b",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metro",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "184e4a10-a5e6-4fd7-866a-ee1e656bffce",
+          "name": "Get Community",
+          "request": {
+            "name": "Get Community",
+            "description": {
+              "content": "Returns detailed information about a specific Taylor Morrison community.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "communities",
+                ":community_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "community_id",
+                  "description": "(Required) Community identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d861a1d-3c02-4bb9-b37a-0c04bc139c61",
+              "name": "Community details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities",
+                    ":community_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "community_id",
+                      "description": "(Required) Community identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"community_id\": \"string\",\n  \"name\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"metro\": \"string\",\n  \"price_from\": 8999,\n  \"price_to\": 8776,\n  \"status\": \"coming-soon\",\n  \"home_count\": 3926,\n  \"description\": \"string\",\n  \"images\": [\n    \"http://hfKyg.yjxdVtVknyzy-,asmF,7oaCILHhNLmugqTJknUhbh0CkkuFCs727hC0NRpB-.CiMOhT6tzSrUnotAiS\",\n    \"http://YBiFWLMgvihvmkBfBLgvABhnysut.czzxKjT7ROzISKr1ZGFr\"\n  ],\n  \"amenities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"latitude\": 7872.347614758773,\n  \"longitude\": 9059.586400811611\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fef9e09-d02e-454c-919e-f93f63cb7fa1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities",
+                    ":community_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "community_id",
+                      "description": "(Required) Community identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6b4dabd6-68f8-471e-9735-f3ef6c2dcd79",
+      "name": "Homes",
+      "description": {
+        "content": "Available homes and inventory",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8215ace2-4bd9-4053-a1d8-e65319f23867",
+          "name": "List Available Homes",
+          "request": {
+            "name": "List Available Homes",
+            "description": {
+              "content": "Returns available homes (move-in ready and to-be-built) across communities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "homes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "Filter by community"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Home availability status"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathrooms",
+                  "value": "<number>",
+                  "description": "Number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_min",
+                  "value": "<integer>",
+                  "description": "Minimum price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_max",
+                  "value": "<integer>",
+                  "description": "Maximum price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_min",
+                  "value": "<integer>",
+                  "description": "Minimum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum homes to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d9313cc-3c88-4232-980f-59f05f282f98",
+              "name": "List of available homes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"homes\": [\n    {\n      \"home_id\": \"string\",\n      \"community_id\": \"string\",\n      \"address\": \"string\",\n      \"status\": \"under-construction\",\n      \"price\": 1050,\n      \"bedrooms\": 4832,\n      \"bathrooms\": 4620.968887130814,\n      \"sqft\": 4916,\n      \"stories\": 1284,\n      \"garage\": 1436,\n      \"floor_plan\": {\n        \"plan_id\": \"string\",\n        \"name\": \"string\",\n        \"bedrooms\": 8202,\n        \"bathrooms\": 6874.389674518646,\n        \"sqft_min\": 8323,\n        \"sqft_max\": 7131,\n        \"stories\": 7012,\n        \"garage\": 3595,\n        \"base_price\": 256,\n        \"description\": \"string\",\n        \"images\": [\n          \"https://KqJsJsbofLMtGiqSxNgI.wnlbUxudj+JbnP-+Xgbzz.EptFijw1m\",\n          \"https://YsDIChcwrSn.jbwgn7rDBf97Du,NSm0TXU7LWrcvy3,.Co-Ud+TRM1Kzpp1qVEHpbNu\"\n        ],\n        \"floor_plan_pdf\": \"http://jNuEUZzBZgXnsnI.vdfR7-dHpQy.OtdTS624YAZTzXdQu,c\"\n      },\n      \"images\": [\n        \"https://YqvLBEpGWdxwgqJsLrrrdRkRSflH.wiYoLuAptTefpJZv.+QHAiqY\",\n        \"https://hHygcaYsFdy.mvtpHzEbmbL6TmSop1EftG-GjxLqpUU.55TEtKCBqzd,jP9qWTrWW7SRP1VTcIn30AfEfTd+TU\"\n      ],\n      \"virtual_tour_url\": \"http://dYwCXUehONdxurWhWRhcVb.uffoPI1lfgiUrIFpc2BdwNMSjysKxpPiPStp1.D-gdYulzDKYEvtlgdQ\"\n    },\n    {\n      \"home_id\": \"string\",\n      \"community_id\": \"string\",\n      \"address\": \"string\",\n      \"status\": \"to-be-built\",\n      \"price\": 7687,\n      \"bedrooms\": 2098,\n      \"bathrooms\": 2146.256141069971,\n      \"sqft\": 7815,\n      \"stories\": 7356,\n      \"garage\": 5208,\n      \"floor_plan\": {\n        \"plan_id\": \"string\",\n        \"name\": \"string\",\n        \"bedrooms\": 3388,\n        \"bathrooms\": 5095.47050930132,\n        \"sqft_min\": 5835,\n        \"sqft_max\": 2995,\n        \"stories\": 3516,\n        \"garage\": 8192,\n        \"base_price\": 655,\n        \"description\": \"string\",\n        \"images\": [\n          \"http://AxiHjvBTrsoTpIWLjORWMegZPCXO.japleqBKxZm2wrgPXVnRP3z,RSrkG54\",\n          \"https://ybVucIP.qipnk51XWACUWdPDTsysOZXO-\"\n        ],\n        \"floor_plan_pdf\": \"http://KRxKkq.oka,gIA6ATjH92RuNIOjLM+KBHfGATOOvRP\"\n      },\n      \"images\": [\n        \"https://cJYSAroDThUvIfJey.bsjtxnpQKKObYCdPhe4tXhmja38poThdytjwFzQ7\",\n        \"http://yEhnQMbPNxboTHXZlKPahImDhKcebx.zcwVdSa4xW3ICJCK29KmgpQuzc6VjneskCsiZMyYsIOcDeqNK\"\n      ],\n      \"virtual_tour_url\": \"http://qUQ.maojyw3DFkaxSbh13D\"\n    }\n  ],\n  \"total\": 8234,\n  \"limit\": 2075,\n  \"offset\": 7465\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b58229a8-007a-4656-8147-5e3f854ec643",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57d218b3-054b-418e-a4b6-27725a315e0c",
+          "name": "Get Home Details",
+          "request": {
+            "name": "Get Home Details",
+            "description": {
+              "content": "Returns full details of a specific home including floor plan, lot, pricing, and availability.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "homes",
+                ":home_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "home_id",
+                  "description": "(Required) Home identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31c0bb55-f35d-43d0-892d-02ba609b25c1",
+              "name": "Home details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes",
+                    ":home_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_id",
+                      "description": "(Required) Home identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"home_id\": \"string\",\n  \"community_id\": \"string\",\n  \"address\": \"string\",\n  \"status\": \"to-be-built\",\n  \"price\": 7366,\n  \"bedrooms\": 8975,\n  \"bathrooms\": 1035.8745471115449,\n  \"sqft\": 5208,\n  \"stories\": 1173,\n  \"garage\": 3853,\n  \"floor_plan\": {\n    \"plan_id\": \"string\",\n    \"name\": \"string\",\n    \"bedrooms\": 1785,\n    \"bathrooms\": 7773.570486742087,\n    \"sqft_min\": 4086,\n    \"sqft_max\": 9870,\n    \"stories\": 3214,\n    \"garage\": 2130,\n    \"base_price\": 5646,\n    \"description\": \"string\",\n    \"images\": [\n      \"https://kOJczCdHLNNrmyOPZDjouLxpqNgtRfP.txtyO1Mt1BM+e.M342Z\",\n      \"https://hIwNmbgDMtvrGR.cetFH2N5q8WmJb92-YhK+GwOw62MtNlXp,t,4X28O.XRmYhl0,vBPpHOLFIbWvkkBYHKsH.eDwCtFwLIJ\"\n    ],\n    \"floor_plan_pdf\": \"http://ZWkAFGDWyfGQQ.lkmbIy7Bvjq4Oda18GkdIa0Wa7hDLOIg2ZL3+mUk2J99mbdeL\"\n  },\n  \"images\": [\n    \"https://D.uuaHc.DQgaBjJqMAs4VQnsc.c2AxvSM\",\n    \"https://oylxqovDdjsgChqCCieFhmjSFSl.rusoiI+rufRX.ilzqByNefHnolThN-QpOKq.3\"\n  ],\n  \"virtual_tour_url\": \"https://aUXiUIrlsUbWjOQrVquTorAAFksZWa.xmfjMsQ,dWKEHzb-t,BWsu2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e83e3c75-da22-4f43-a8c8-0d9c879f9292",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes",
+                    ":home_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_id",
+                      "description": "(Required) Home identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e0ce7e24-3a0e-4774-9755-a7fd4ef4e75c",
+      "name": "Floor Plans",
+      "description": {
+        "content": "Floor plan catalog and options",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "abde84ed-f463-4612-b88c-7737b8d62a84",
+          "name": "List Floor Plans",
+          "request": {
+            "name": "List Floor Plans",
+            "description": {
+              "content": "Returns available floor plans for a community or across all communities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "floor-plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "Filter by community"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathrooms",
+                  "value": "<number>",
+                  "description": "Number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_min",
+                  "value": "<integer>",
+                  "description": "Minimum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_max",
+                  "value": "<integer>",
+                  "description": "Maximum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "stories",
+                  "value": "<integer>",
+                  "description": "Number of stories"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum floor plans to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "432f6f7f-b216-48b0-9145-4dfe725dbd90",
+              "name": "List of floor plans",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"floor_plans\": [\n    {\n      \"plan_id\": \"string\",\n      \"name\": \"string\",\n      \"bedrooms\": 8007,\n      \"bathrooms\": 7061.779950115025,\n      \"sqft_min\": 3769,\n      \"sqft_max\": 9289,\n      \"stories\": 1941,\n      \"garage\": 4888,\n      \"base_price\": 7428,\n      \"description\": \"string\",\n      \"images\": [\n        \"https://QTUScMNMQ.tpcds1ZVlEMbdTP2pY,4FeGtbNehO83bPncEFNg7\",\n        \"https://njwxTcrTjWUttYWsAnXrXOgcqZ.kfhommATZl9\"\n      ],\n      \"floor_plan_pdf\": \"http://VjxZNOGTONESO.iavCMVwp9UlY.YgNWuRa3clHaxxCegKpzJYt\"\n    },\n    {\n      \"plan_id\": \"string\",\n      \"name\": \"string\",\n      \"bedrooms\": 991,\n      \"bathrooms\": 3481.8995278088096,\n      \"sqft_min\": 1904,\n      \"sqft_max\": 4432,\n      \"stories\": 6924,\n      \"garage\": 67,\n      \"base_price\": 5295,\n      \"description\": \"string\",\n      \"images\": [\n        \"https://jTMTJJrW.gxytyc,vy0Qwv7+n934M0Rvhm4bSwVQjWBUwREVtN\",\n        \"https://inkrWnsJiSfaOHsjjmXcwLMSi.orypQ7UFNVR+ktPQc7nmNU-94ln\"\n      ],\n      \"floor_plan_pdf\": \"https://YmGIKCdILdKK.dwyXP1v5FBfwBOTi+QNgsxEsUtILBvHITsLv9FTrCF.Efyhnv,+agrkzajTpW6C43\"\n    }\n  ],\n  \"total\": 3775\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eca6394f-765f-4aa9-9017-1bfcca3715fe",
+          "name": "Get Floor Plan",
+          "request": {
+            "name": "Get Floor Plan",
+            "description": {
+              "content": "Returns detailed floor plan information including dimensions, rooms, and structural options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "floor-plans",
+                ":plan_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "plan_id",
+                  "description": "(Required) Floor plan identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26f547b4-d04d-41de-bb30-5a57f2e4269b",
+              "name": "Floor plan details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans",
+                    ":plan_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plan_id",
+                      "description": "(Required) Floor plan identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plan_id\": \"string\",\n  \"name\": \"string\",\n  \"bedrooms\": 5396,\n  \"bathrooms\": 2535.9214338327265,\n  \"sqft_min\": 4024,\n  \"sqft_max\": 8900,\n  \"stories\": 1536,\n  \"garage\": 3273,\n  \"base_price\": 7240,\n  \"description\": \"string\",\n  \"images\": [\n    \"http://qMoevmsFowFdZgTsyy.zjbfOhLDNYpYI7C4d1,Z\",\n    \"http://EZWBZkkbyMs.exzuTgrIxtDcLibuYCU-KpKPmw9lI+fv\"\n  ],\n  \"floor_plan_pdf\": \"https://abSAnlJwCAAmXJjmGGptUbSlqbCMZHaX.hdzkA5l8MyP2u3R81KZP,WQIeo+nysSC2MWKm.AuQv5766xNN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "854e6f70-5a23-4ee1-b67c-93e757d49c32",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans",
+                    ":plan_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plan_id",
+                      "description": "(Required) Floor plan identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1b918271-e0a7-443d-9fd9-1d194bc078c4",
+      "name": "Lots",
+      "description": {
+        "content": "Lot availability and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60bc3366-9858-4b48-aacd-4dbe483d94af",
+          "name": "List Available Lots",
+          "request": {
+            "name": "List Available Lots",
+            "description": {
+              "content": "Returns available lots in a community for to-be-built home construction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "(Required) Community to list lots for"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Lot availability status"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62b4c9d2-7d37-4b31-8acf-579b72695598",
+              "name": "List of lots",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lots\": [\n    {\n      \"lot_id\": \"string\",\n      \"lot_number\": \"string\",\n      \"status\": \"reserved\",\n      \"price_premium\": 9274,\n      \"sqft\": 7053,\n      \"dimensions\": \"string\",\n      \"backing\": \"string\"\n    },\n    {\n      \"lot_id\": \"string\",\n      \"lot_number\": \"string\",\n      \"status\": \"reserved\",\n      \"price_premium\": 3026,\n      \"sqft\": 8731,\n      \"dimensions\": \"string\",\n      \"backing\": \"string\"\n    }\n  ],\n  \"total\": 8566\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65139c71-8c9f-4638-9b01-7ed9f798c509",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "94b29127-df8e-4ca5-b46b-33c5fec1d5fb",
+      "name": "Reservations",
+      "description": {
+        "content": "Online home reservation and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de92dcb9-bdeb-4a1e-8ab4-8e4e23f0bb30",
+          "name": "Create Reservation",
+          "request": {
+            "name": "Create Reservation",
+            "description": {
+              "content": "Submit an online home reservation for a to-be-built or available home with initial design selections and a deposit. This powers Taylor Morrison's industry-first fully digital homebuying flow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reservations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"community_id\": \"<string>\",\n  \"plan_id\": \"<string>\",\n  \"buyer_info\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone\": \"<string>\"\n  },\n  \"deposit\": \"<integer>\",\n  \"lot_id\": \"<string>\",\n  \"home_id\": \"<string>\",\n  \"design_selections\": [\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "884cff99-f3da-4f25-a958-3b6fa30d86f4",
+              "name": "Reservation created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"plan_id\": \"<string>\",\n  \"buyer_info\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone\": \"<string>\"\n  },\n  \"deposit\": \"<integer>\",\n  \"lot_id\": \"<string>\",\n  \"home_id\": \"<string>\",\n  \"design_selections\": [\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reservation_id\": \"string\",\n  \"status\": \"confirmed\",\n  \"community_id\": \"string\",\n  \"plan_id\": \"string\",\n  \"lot_id\": \"string\",\n  \"home_id\": \"string\",\n  \"base_price\": 9225,\n  \"deposit_amount\": 985,\n  \"estimated_close_date\": \"1997-09-26\",\n  \"created_at\": \"2005-07-27T22:13:23.019Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "180f214c-5605-4cd2-98ef-2d247e9d03c1",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"plan_id\": \"<string>\",\n  \"buyer_info\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone\": \"<string>\"\n  },\n  \"deposit\": \"<integer>\",\n  \"lot_id\": \"<string>\",\n  \"home_id\": \"<string>\",\n  \"design_selections\": [\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e1081a3-8541-4fec-9bb8-d1b8e7a1133c",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"community_id\": \"<string>\",\n  \"plan_id\": \"<string>\",\n  \"buyer_info\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone\": \"<string>\"\n  },\n  \"deposit\": \"<integer>\",\n  \"lot_id\": \"<string>\",\n  \"home_id\": \"<string>\",\n  \"design_selections\": [\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"option_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa5e0a9e-812e-4da4-89ef-45f8aa22bde5",
+          "name": "List Reservations",
+          "request": {
+            "name": "List Reservations",
+            "description": {
+              "content": "Returns reservations for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reservations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51669413-44c4-4e56-8eab-a9db5612f1ac",
+              "name": "List of reservations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reservations\": [\n    {\n      \"reservation_id\": \"string\",\n      \"status\": \"cancelled\",\n      \"community_id\": \"string\",\n      \"plan_id\": \"string\",\n      \"lot_id\": \"string\",\n      \"home_id\": \"string\",\n      \"base_price\": 4333,\n      \"deposit_amount\": 7194,\n      \"estimated_close_date\": \"1955-07-03\",\n      \"created_at\": \"1971-03-22T19:52:24.026Z\"\n    },\n    {\n      \"reservation_id\": \"string\",\n      \"status\": \"pending\",\n      \"community_id\": \"string\",\n      \"plan_id\": \"string\",\n      \"lot_id\": \"string\",\n      \"home_id\": \"string\",\n      \"base_price\": 8185,\n      \"deposit_amount\": 6248,\n      \"estimated_close_date\": \"2024-07-27\",\n      \"created_at\": \"1970-07-26T10:18:03.210Z\"\n    }\n  ],\n  \"total\": 5243\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f76d925f-3a23-4644-bda5-43e06a6cfa21",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1435462c-ec4e-4e1d-bb09-9868bac35111",
+          "name": "Get Reservation",
+          "request": {
+            "name": "Get Reservation",
+            "description": {
+              "content": "Returns details of a specific reservation including status and selections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reservations",
+                ":reservation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reservation_id",
+                  "description": "(Required) Reservation identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66c849ab-b987-4bb9-83cc-b5c8a100f63e",
+              "name": "Reservation details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations",
+                    ":reservation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reservation_id",
+                      "description": "(Required) Reservation identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reservation_id\": \"string\",\n  \"status\": \"confirmed\",\n  \"community_id\": \"string\",\n  \"plan_id\": \"string\",\n  \"lot_id\": \"string\",\n  \"home_id\": \"string\",\n  \"base_price\": 9225,\n  \"deposit_amount\": 985,\n  \"estimated_close_date\": \"1997-09-26\",\n  \"created_at\": \"2005-07-27T22:13:23.019Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b995a30-0f95-4104-a367-cbaaa4eca285",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations",
+                    ":reservation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reservation_id",
+                      "description": "(Required) Reservation identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89958e58-b626-4c29-b7e4-48e59c4be816",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations",
+                    ":reservation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reservation_id",
+                      "description": "(Required) Reservation identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "57f0d4ac-357e-4d33-ba02-5dea2bbcd52d",
+      "name": "Design",
+      "description": {
+        "content": "Design studio selections and options",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80f24b1a-6d60-45cd-8b49-f81edc154fd6",
+          "name": "List Design Options",
+          "request": {
+            "name": "List Design Options",
+            "description": {
+              "content": "Returns available design selections for a floor plan including structural, exterior, and interior options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "design",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "plan_id",
+                  "value": "<string>",
+                  "description": "(Required) Floor plan to get options for"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Option category filter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56963707-4415-4ad9-b082-63cc1245545a",
+              "name": "Design options",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "design",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"options\": [\n    {\n      \"option_id\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"price\": 859,\n      \"images\": [\n        \"https://VnwoqqEVXWoVDftHnxrrKvrNb.uioyCjbxl27tnBovEFAQUcS\",\n        \"https://EyHIYeWBcRYGmRnVYxSiwZFsGD.bgzi7OjTaB9QX\"\n      ]\n    },\n    {\n      \"option_id\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"price\": 6108,\n      \"images\": [\n        \"https://voMSDofCTNMahaAvzaIJWnOvijB.ocexv79PbvYqxs7m.u.p0UR4,SdXb5jn8t.EFVBV.WkY6ziGVYeRHJrE01WxFLvQ\",\n        \"http://IvzugazLOtKvByF.ekDn51C1\"\n      ]\n    }\n  ],\n  \"total\": 1031\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a03475f-48e0-48a7-9920-94a2cb0f1523",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "design",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10efd6fe-3cce-4ac7-9536-a8c8f13c85fe",
+    "name": "Taylor Morrison Home Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}
