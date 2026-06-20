@@ -18,7 +18,7 @@ apis:
       - New Homes
       - Real Estate
       - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://www.taylormorrison.com/api
     humanURL: https://www.taylormorrison.com/
     properties:
@@ -39,7 +39,7 @@ apis:
       - Homebuilding
       - Mortgage
       - Real Estate
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.taylormorrisonfunding.com/
     properties:
       - url: https://www.taylormorrisonfunding.com/
@@ -55,7 +55,7 @@ apis:
       - Homebuilding
       - Interior Design
       - Real Estate
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.taylormorrison.com/design-studio
     properties:
       - url: https://www.taylormorrison.com/design-studio
