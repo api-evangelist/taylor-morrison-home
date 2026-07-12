@@ -65,6 +65,10 @@ apis:
       selections, interior finishes, and upgrades. Powers the online home configuration and reservation flow with an
       interactive 3D visualizer.
 common:
+  - type: DomainSecurity
+    url: security/taylor-morrison-home-domain-security.yml
+  - type: Authentication
+    url: authentication/taylor-morrison-home-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/taylor-morrison
   - type: Website
