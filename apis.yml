@@ -65,6 +65,8 @@ apis:
       selections, interior finishes, and upgrades. Powers the online home configuration and reservation flow with an
       interactive 3D visualizer.
 common:
+  - type: AgenticAccess
+    url: agentic-access/taylor-morrison-home-agentic-access.yml
   - type: DomainSecurity
     url: security/taylor-morrison-home-domain-security.yml
   - type: Authentication
