@@ -1,0 +1,249 @@
+openapi: 3.1.0
+info:
+  title: Taylor Morrison Home Search Communities Homes API
+  description: Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.
+  version: '1.0'
+  contact:
+    name: Taylor Morrison
+    url: https://www.taylormorrison.com/
+servers:
+- url: https://www.taylormorrison.com/api
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Homes
+  description: Available homes and inventory
+paths:
+  /homes:
+    get:
+      operationId: listHomes
+      summary: List Available Homes
+      description: Returns available homes (move-in ready and to-be-built) across communities.
+      tags:
+      - Homes
+      security: []
+      parameters:
+      - name: community_id
+        in: query
+        required: false
+        description: Filter by community
+        schema:
+          type: string
+      - name: status
+        in: query
+        required: false
+        description: Home availability status
+        schema:
+          type: string
+          enum:
+          - available
+          - pending
+          - model
+          - under-construction
+          - to-be-built
+      - name: bedrooms
+        in: query
+        required: false
+        description: Number of bedrooms
+        schema:
+          type: integer
+      - name: bathrooms
+        in: query
+        required: false
+        description: Number of bathrooms
+        schema:
+          type: number
+      - name: price_min
+        in: query
+        required: false
+        description: Minimum price
+        schema:
+          type: integer
+      - name: price_max
+        in: query
+        required: false
+        description: Maximum price
+        schema:
+          type: integer
+      - name: sqft_min
+        in: query
+        required: false
+        description: Minimum square footage
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Maximum homes to return
+        schema:
+          type: integer
+          default: 20
+      - name: offset
+        in: query
+        required: false
+        description: Pagination offset
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: List of available homes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeList'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /homes/{home_id}:
+    get:
+      operationId: getHome
+      summary: Get Home Details
+      description: Returns full details of a specific home including floor plan, lot, pricing, and availability.
+      tags:
+      - Homes
+      security: []
+      parameters:
+      - name: home_id
+        in: path
+        required: true
+        description: Home identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Home details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Home'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+    FloorPlan:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Floor plan identifier
+        name:
+          type: string
+          description: Floor plan name
+        bedrooms:
+          type: integer
+        bathrooms:
+          type: number
+        sqft_min:
+          type: integer
+          description: Minimum square footage (base plan)
+        sqft_max:
+          type: integer
+          description: Maximum square footage (with all options)
+        stories:
+          type: integer
+        garage:
+          type: integer
+        base_price:
+          type: integer
+          description: Base price for this floor plan
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        floor_plan_pdf:
+          type: string
+          format: uri
+          description: PDF floor plan download URL
+    HomeList:
+      type: object
+      properties:
+        homes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Home'
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    Home:
+      type: object
+      properties:
+        home_id:
+          type: string
+          description: Unique home identifier
+        community_id:
+          type: string
+          description: Community this home belongs to
+        address:
+          type: string
+          description: Street address (if available)
+        status:
+          type: string
+          enum:
+          - available
+          - pending
+          - model
+          - under-construction
+          - to-be-built
+        price:
+          type: integer
+          description: Base price
+        bedrooms:
+          type: integer
+        bathrooms:
+          type: number
+        sqft:
+          type: integer
+          description: Square footage
+        stories:
+          type: integer
+        garage:
+          type: integer
+          description: Number of garage spaces
+        floor_plan:
+          $ref: '#/components/schemas/FloorPlan'
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        virtual_tour_url:
+          type: string
+          format: uri
+          description: 3D virtual tour URL
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+externalDocs:
+  description: Taylor Morrison Website
+  url: https://www.taylormorrison.com/

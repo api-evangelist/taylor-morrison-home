@@ -1,0 +1,204 @@
+openapi: 3.1.0
+info:
+  title: Taylor Morrison Home Search Communities Reservations API
+  description: Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.
+  version: '1.0'
+  contact:
+    name: Taylor Morrison
+    url: https://www.taylormorrison.com/
+servers:
+- url: https://www.taylormorrison.com/api
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Reservations
+  description: Online home reservation and configuration
+paths:
+  /reservations:
+    post:
+      operationId: createReservation
+      summary: Create Reservation
+      description: Submit an online home reservation for a to-be-built or available home with initial design selections and a deposit. This powers Taylor Morrison's industry-first fully digital homebuying flow.
+      tags:
+      - Reservations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+      responses:
+        '201':
+          description: Reservation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      operationId: listReservations
+      summary: List Reservations
+      description: Returns reservations for the authenticated user.
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: List of reservations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /reservations/{reservation_id}:
+    get:
+      operationId: getReservation
+      summary: Get Reservation
+      description: Returns details of a specific reservation including status and selections.
+      tags:
+      - Reservations
+      parameters:
+      - name: reservation_id
+        in: path
+        required: true
+        description: Reservation identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    ReservationList:
+      type: object
+      properties:
+        reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+        total:
+          type: integer
+    Reservation:
+      type: object
+      properties:
+        reservation_id:
+          type: string
+          description: Unique reservation identifier
+        status:
+          type: string
+          enum:
+          - pending
+          - confirmed
+          - in-contract
+          - cancelled
+        community_id:
+          type: string
+        plan_id:
+          type: string
+        lot_id:
+          type: string
+        home_id:
+          type: string
+        base_price:
+          type: integer
+        deposit_amount:
+          type: integer
+        estimated_close_date:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+    ReservationRequest:
+      type: object
+      required:
+      - community_id
+      - plan_id
+      - buyer_info
+      - deposit
+      properties:
+        community_id:
+          type: string
+          description: Community ID
+        plan_id:
+          type: string
+          description: Floor plan ID
+        lot_id:
+          type: string
+          description: Lot ID (for to-be-built)
+        home_id:
+          type: string
+          description: Home ID (for available/quick-move-in)
+        buyer_info:
+          type: object
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+              format: email
+            phone:
+              type: string
+        deposit:
+          type: integer
+          description: Reservation deposit amount in USD
+        design_selections:
+          type: array
+          description: Initial design option selections
+          items:
+            type: object
+            properties:
+              option_id:
+                type: string
+              quantity:
+                type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+externalDocs:
+  description: Taylor Morrison Website
+  url: https://www.taylormorrison.com/

@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Taylor Morrison Home Search Communities Design API
+  description: Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.
+  version: '1.0'
+  contact:
+    name: Taylor Morrison
+    url: https://www.taylormorrison.com/
+servers:
+- url: https://www.taylormorrison.com/api
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Design
+  description: Design studio selections and options
+paths:
+  /design/options:
+    get:
+      operationId: listDesignOptions
+      summary: List Design Options
+      description: Returns available design selections for a floor plan including structural, exterior, and interior options.
+      tags:
+      - Design
+      parameters:
+      - name: plan_id
+        in: query
+        required: true
+        description: Floor plan to get options for
+        schema:
+          type: string
+      - name: category
+        in: query
+        required: false
+        description: Option category filter
+        schema:
+          type: string
+          enum:
+          - structural
+          - exterior
+          - flooring
+          - cabinets
+          - countertops
+          - appliances
+          - fixtures
+          - lighting
+      responses:
+        '200':
+          description: Design options
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignOptionList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    DesignOptionList:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignOption'
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+    DesignOption:
+      type: object
+      properties:
+        option_id:
+          type: string
+          description: Design option identifier
+        name:
+          type: string
+          description: Option name
+        category:
+          type: string
+          description: Option category
+        description:
+          type: string
+        price:
+          type: integer
+          description: Option price premium
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+  responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+externalDocs:
+  description: Taylor Morrison Website
+  url: https://www.taylormorrison.com/

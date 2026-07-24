@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: Taylor Morrison Home Search Communities Floor Plans API
+  description: Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.
+  version: '1.0'
+  contact:
+    name: Taylor Morrison
+    url: https://www.taylormorrison.com/
+servers:
+- url: https://www.taylormorrison.com/api
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Floor Plans
+  description: Floor plan catalog and options
+paths:
+  /floor-plans:
+    get:
+      operationId: listFloorPlans
+      summary: List Floor Plans
+      description: Returns available floor plans for a community or across all communities.
+      tags:
+      - Floor Plans
+      security: []
+      parameters:
+      - name: community_id
+        in: query
+        required: false
+        description: Filter by community
+        schema:
+          type: string
+      - name: bedrooms
+        in: query
+        required: false
+        description: Number of bedrooms
+        schema:
+          type: integer
+      - name: bathrooms
+        in: query
+        required: false
+        description: Number of bathrooms
+        schema:
+          type: number
+      - name: sqft_min
+        in: query
+        required: false
+        description: Minimum square footage
+        schema:
+          type: integer
+      - name: sqft_max
+        in: query
+        required: false
+        description: Maximum square footage
+        schema:
+          type: integer
+      - name: stories
+        in: query
+        required: false
+        description: Number of stories
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Maximum floor plans to return
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          description: List of floor plans
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FloorPlanList'
+  /floor-plans/{plan_id}:
+    get:
+      operationId: getFloorPlan
+      summary: Get Floor Plan
+      description: Returns detailed floor plan information including dimensions, rooms, and structural options.
+      tags:
+      - Floor Plans
+      security: []
+      parameters:
+      - name: plan_id
+        in: path
+        required: true
+        description: Floor plan identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Floor plan details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FloorPlan'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    FloorPlanList:
+      type: object
+      properties:
+        floor_plans:
+          type: array
+          items:
+            $ref: '#/components/schemas/FloorPlan'
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+    FloorPlan:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Floor plan identifier
+        name:
+          type: string
+          description: Floor plan name
+        bedrooms:
+          type: integer
+        bathrooms:
+          type: number
+        sqft_min:
+          type: integer
+          description: Minimum square footage (base plan)
+        sqft_max:
+          type: integer
+          description: Maximum square footage (with all options)
+        stories:
+          type: integer
+        garage:
+          type: integer
+        base_price:
+          type: integer
+          description: Base price for this floor plan
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        floor_plan_pdf:
+          type: string
+          format: uri
+          description: PDF floor plan download URL
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+externalDocs:
+  description: Taylor Morrison Website
+  url: https://www.taylormorrison.com/

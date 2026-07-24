@@ -1,0 +1,206 @@
+openapi: 3.1.0
+info:
+  title: Taylor Morrison Home Search Communities API
+  description: Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.
+  version: '1.0'
+  contact:
+    name: Taylor Morrison
+    url: https://www.taylormorrison.com/
+servers:
+- url: https://www.taylormorrison.com/api
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Communities
+  description: New home community search and details
+paths:
+  /communities:
+    get:
+      operationId: listCommunities
+      summary: List Communities
+      description: Returns a list of active Taylor Morrison communities filtered by state, city, metro area, or price range.
+      tags:
+      - Communities
+      security: []
+      parameters:
+      - name: state
+        in: query
+        required: false
+        description: Two-letter state code filter
+        schema:
+          type: string
+          pattern: ^[A-Z]{2}$
+      - name: city
+        in: query
+        required: false
+        description: City name filter
+        schema:
+          type: string
+      - name: metro
+        in: query
+        required: false
+        description: Metropolitan area name
+        schema:
+          type: string
+      - name: price_min
+        in: query
+        required: false
+        description: Minimum home price
+        schema:
+          type: integer
+      - name: price_max
+        in: query
+        required: false
+        description: Maximum home price
+        schema:
+          type: integer
+      - name: bedrooms
+        in: query
+        required: false
+        description: Minimum number of bedrooms
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Maximum communities to return
+        schema:
+          type: integer
+          default: 20
+      - name: offset
+        in: query
+        required: false
+        description: Pagination offset
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: List of communities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommunityList'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /communities/{community_id}:
+    get:
+      operationId: getCommunity
+      summary: Get Community
+      description: Returns detailed information about a specific Taylor Morrison community.
+      tags:
+      - Communities
+      security: []
+      parameters:
+      - name: community_id
+        in: path
+        required: true
+        description: Community identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Community details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Community'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+    CommunityList:
+      type: object
+      properties:
+        communities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Community'
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    Community:
+      type: object
+      properties:
+        community_id:
+          type: string
+          description: Unique community identifier
+        name:
+          type: string
+          description: Community name
+        city:
+          type: string
+          description: City
+        state:
+          type: string
+          description: State code
+        metro:
+          type: string
+          description: Metropolitan area
+        price_from:
+          type: integer
+          description: Starting price for homes in this community
+        price_to:
+          type: integer
+          description: Upper price range for homes in this community
+        status:
+          type: string
+          enum:
+          - selling
+          - coming-soon
+          - sold-out
+        home_count:
+          type: integer
+          description: Number of available homes
+        description:
+          type: string
+          description: Community description
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: Community image URLs
+        amenities:
+          type: array
+          items:
+            type: string
+          description: Community amenities
+        latitude:
+          type: number
+        longitude:
+          type: number
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+externalDocs:
+  description: Taylor Morrison Website
+  url: https://www.taylormorrison.com/
