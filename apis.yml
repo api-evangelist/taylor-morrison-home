@@ -1,4 +1,18 @@
 aid: taylor-morrison-home
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/taylor-morrison-home.png
 url: https://raw.githubusercontent.com/api-evangelist/taylor-morrison-home/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-05-19'
@@ -10,60 +24,122 @@ description: >-
   They integrate with Offerpad for trade-ins, Taylor Morrison Home Funding (TMHF) for mortgages, and multiple proptech
   partners.
 apis:
-  - aid: taylor-morrison-home:taylor-morrison-home-search-api
-    name: Taylor Morrison Home Search API
-    tags:
-      - Communities
-      - Homebuilding
-      - New Homes
-      - Real Estate
-      - Search
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://www.taylormorrison.com/api
-    humanURL: https://www.taylormorrison.com/
-    properties:
-      - url: https://www.taylormorrison.com/
-        type: Documentation
-      - url: openapi/taylor-morrison-home-search-openapi.yml
-        type: OpenAPI
-      - url: rules/taylor-morrison-spectral-rules.yml
-        type: SpectralRules
-    description: >-
-      Taylor Morrison's web platform provides APIs for searching new home communities, available homes, floor plans, lot
-      inventory, and model home details. Powers the digital homebuying experience including the industry-first
-      to-be-built online reservation system.
-  - aid: taylor-morrison-home:taylor-morrison-home-funding-api
-    name: Taylor Morrison Home Funding API
-    tags:
-      - Finance
-      - Homebuilding
-      - Mortgage
-      - Real Estate
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.taylormorrisonfunding.com/
-    properties:
-      - url: https://www.taylormorrisonfunding.com/
-        type: Documentation
-    description: >-
-      Taylor Morrison Home Funding (TMHF) provides mortgage loan origination services integrated with the homebuying
-      process. Integrates with Fannie Mae Day 1 Certainty for automated income and asset verification, reducing approval
-      timelines.
-  - aid: taylor-morrison-home:taylor-morrison-design-studio-api
-    name: Taylor Morrison Design Studio API
-    tags:
-      - Design
-      - Homebuilding
-      - Interior Design
-      - Real Estate
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.taylormorrison.com/design-studio
-    properties:
-      - url: https://www.taylormorrison.com/design-studio
-        type: Documentation
-    description: >-
-      Digital design studio API supporting home personalization including structural options, exterior design
-      selections, interior finishes, and upgrades. Powers the online home configuration and reservation flow with an
-      interactive 3D visualizer.
+- aid: taylor-morrison-home:taylor-morrison-home-funding-api
+  name: Taylor Morrison Home Funding API
+  tags:
+  - Finance
+  - Homebuilding
+  - Mortgage
+  - Real Estate
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.taylormorrisonfunding.com/
+  properties:
+  - url: https://www.taylormorrisonfunding.com/
+    type: Documentation
+  description: >-
+    Taylor Morrison Home Funding (TMHF) provides mortgage loan origination services integrated with the
+    homebuying process. Integrates with Fannie Mae Day 1 Certainty for automated income and asset verification,
+    reducing approval timelines.
+- aid: taylor-morrison-home:taylor-morrison-design-studio-api
+  name: Taylor Morrison Design Studio API
+  tags:
+  - Design
+  - Homebuilding
+  - Interior Design
+  - Real Estate
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.taylormorrison.com/design-studio
+  properties:
+  - url: https://www.taylormorrison.com/design-studio
+    type: Documentation
+  description: >-
+    Digital design studio API supporting home personalization including structural options, exterior design
+    selections, interior finishes, and upgrades. Powers the online home configuration and reservation
+    flow with an interactive 3D visualizer.
+- aid: taylor-morrison-home:taylor-morrison-home-communities-api
+  name: taylor-morrison-home Communities API
+  description: New home community search and details
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Communities
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-communities-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
+- aid: taylor-morrison-home:taylor-morrison-home-design-api
+  name: taylor-morrison-home Design API
+  description: Design studio selections and options
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Design
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-design-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
+- aid: taylor-morrison-home:taylor-morrison-home-floor-plans-api
+  name: taylor-morrison-home Floor Plans API
+  description: Floor plan catalog and options
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Floor Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-floor-plans-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
+- aid: taylor-morrison-home:taylor-morrison-home-homes-api
+  name: taylor-morrison-home Homes API
+  description: Available homes and inventory
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Homes
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-homes-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
+- aid: taylor-morrison-home:taylor-morrison-home-lots-api
+  name: taylor-morrison-home Lots API
+  description: Lot availability and details
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Lots
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-lots-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
+- aid: taylor-morrison-home:taylor-morrison-home-reservations-api
+  name: taylor-morrison-home Reservations API
+  description: Online home reservation and configuration
+  humanURL: https://www.taylormorrison.com/
+  baseURL: https://www.taylormorrison.com/api
+  tags:
+  - Reservations
+  properties:
+  - type: OpenAPI
+    url: openapi/taylor-morrison-home-reservations-api-openapi.yml
+  - type: Documentation
+    url: https://www.taylormorrison.com/
+  - type: SpectralRules
+    url: rules/taylor-morrison-spectral-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/taylor-morrison-home-agentic-access.yml
