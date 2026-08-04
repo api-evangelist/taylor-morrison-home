@@ -1,0 +1,24 @@
+{
+  "provider": "taylor-morrison-home",
+  "sources": [
+    "taylor-morrison-home-communities-api-openapi.yml",
+    "taylor-morrison-home-design-api-openapi.yml",
+    "taylor-morrison-home-floor-plans-api-openapi.yml",
+    "taylor-morrison-home-homes-api-openapi.yml",
+    "taylor-morrison-home-lots-api-openapi.yml",
+    "taylor-morrison-home-reservations-api-openapi.yml"
+  ],
+  "outputs": [
+    "taylor-morrison-home-communities-api-openapi.yml",
+    "taylor-morrison-home-design-api-openapi.yml",
+    "taylor-morrison-home-floor-plans-api-openapi.yml",
+    "taylor-morrison-home-homes-api-openapi.yml",
+    "taylor-morrison-home-lots-api-openapi.yml",
+    "taylor-morrison-home-reservations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
