@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taylor Morrison Home Search Communities Floor Plans API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Floor Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Floor Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/floor-plans",
+            "params": [
+              {
+                "name": "community_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by community"
+              },
+              {
+                "name": "bedrooms",
+                "value": "",
+                "type": "query",
+                "description": "Number of bedrooms"
+              },
+              {
+                "name": "bathrooms",
+                "value": "",
+                "type": "query",
+                "description": "Number of bathrooms"
+              },
+              {
+                "name": "sqft_min",
+                "value": "",
+                "type": "query",
+                "description": "Minimum square footage"
+              },
+              {
+                "name": "sqft_max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum square footage"
+              },
+              {
+                "name": "stories",
+                "value": "",
+                "type": "query",
+                "description": "Number of stories"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum floor plans to return"
+              }
+            ]
+          },
+          "docs": "Returns available floor plans for a community or across all communities."
+        },
+        {
+          "info": {
+            "name": "Get Floor Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/floor-plans/:plan_id",
+            "params": [
+              {
+                "name": "plan_id",
+                "value": "",
+                "type": "path",
+                "description": "Floor plan identifier"
+              }
+            ]
+          },
+          "docs": "Returns detailed floor plan information including dimensions, rooms, and structural options."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taylor Morrison Home Search Communities Reservations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reservations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Reservations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/reservations"
+          },
+          "docs": "Returns reservations for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create Reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.taylormorrison.com/api/reservations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit an online home reservation for a to-be-built or available home with initial design selections and a deposit. This powers Taylor Morrison's industry-first fully digital homebuying flow."
+        },
+        {
+          "info": {
+            "name": "Get Reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/reservations/:reservation_id",
+            "params": [
+              {
+                "name": "reservation_id",
+                "value": "",
+                "type": "path",
+                "description": "Reservation identifier"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific reservation including status and selections."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

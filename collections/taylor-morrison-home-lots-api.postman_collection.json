@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "d931180f-613b-4e4d-b10b-71a88683f100",
+      "name": "Lots",
+      "description": {
+        "content": "Lot availability and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24efb5fe-a66f-4d39-975b-a35a04c98444",
+          "name": "List Available Lots",
+          "request": {
+            "name": "List Available Lots",
+            "description": {
+              "content": "Returns available lots in a community for to-be-built home construction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "(Required) Community to list lots for"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Lot availability status"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "146e1c55-b6d6-4a8d-b28f-9ed999b98231",
+              "name": "List of lots",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lots\": [\n    {\n      \"lot_id\": \"string\",\n      \"lot_number\": \"string\",\n      \"status\": \"available\",\n      \"price_premium\": 8397,\n      \"sqft\": 5965,\n      \"dimensions\": \"string\",\n      \"backing\": \"string\"\n    },\n    {\n      \"lot_id\": \"string\",\n      \"lot_number\": \"string\",\n      \"status\": \"available\",\n      \"price_premium\": 5790,\n      \"sqft\": 65,\n      \"dimensions\": \"string\",\n      \"backing\": \"string\"\n    }\n  ],\n  \"total\": 547\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dd78669-a8f5-4096-8a07-e602b865a4c0",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b15c74e-bcf6-4c54-a822-583b2d73c749",
+    "name": "Taylor Morrison Home Search Communities Lots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}

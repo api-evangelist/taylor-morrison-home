@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "24b61e11-13b3-47b3-b69e-4a241a7ba994",
+      "name": "Design",
+      "description": {
+        "content": "Design studio selections and options",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78e04d35-3098-4d34-a207-5d2646075387",
+          "name": "List Design Options",
+          "request": {
+            "name": "List Design Options",
+            "description": {
+              "content": "Returns available design selections for a floor plan including structural, exterior, and interior options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "design",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "plan_id",
+                  "value": "<string>",
+                  "description": "(Required) Floor plan to get options for"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Option category filter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de13ae34-5dcb-4706-bb5e-5ff3180bc829",
+              "name": "Design options",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "design",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"options\": [\n    {\n      \"option_id\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"price\": 4789,\n      \"images\": [\n        \"https://XabUCy.kfB4Nyey791X.yw.TUf3VAyK6ttL.CfiIsyNzlMKsIvAINr7Ie.EIjKhfPATB8XMt\",\n        \"http://vCVlHwkzGKuGSYRyoVwPTYfnGCxZqAx.dohsQawl6,akVD4jyR5QxkZF00WT+-KVfJJzDHGcTJZVny8fxd0K96uuPOQMAWRSP0bG.LQJs,O\"\n      ]\n    },\n    {\n      \"option_id\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"price\": 2847,\n      \"images\": [\n        \"https://efsQrNEtCkPSILufGZIFA.fvqoTrOfXK5vbZgewm\",\n        \"http://XqkNAqhIUMDIwgEUtKu.itiPyjE3YASq4bEo.qQh.JtVzLeZA\"\n      ]\n    }\n  ],\n  \"total\": 4949\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d28a354-2323-4c0a-81ab-48b30e30cb99",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "design",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa156e0b-678f-4835-855e-311a702472df",
+    "name": "Taylor Morrison Home Search Communities Design API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}

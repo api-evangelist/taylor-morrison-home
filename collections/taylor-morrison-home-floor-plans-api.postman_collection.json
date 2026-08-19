@@ -1,0 +1,347 @@
+{
+  "item": [
+    {
+      "id": "318798be-1230-45f8-91bc-73ff09e26d54",
+      "name": "Floor Plans",
+      "description": {
+        "content": "Floor plan catalog and options",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c591f32-d538-46b0-b952-de9838d179e2",
+          "name": "List Floor Plans",
+          "request": {
+            "name": "List Floor Plans",
+            "description": {
+              "content": "Returns available floor plans for a community or across all communities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "floor-plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "Filter by community"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathrooms",
+                  "value": "<number>",
+                  "description": "Number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_min",
+                  "value": "<integer>",
+                  "description": "Minimum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_max",
+                  "value": "<integer>",
+                  "description": "Maximum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "stories",
+                  "value": "<integer>",
+                  "description": "Number of stories"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum floor plans to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22040653-6ac3-47f9-abd3-2c81dd5f5f6c",
+              "name": "List of floor plans",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"floor_plans\": [\n    {\n      \"plan_id\": \"string\",\n      \"name\": \"string\",\n      \"bedrooms\": 1871,\n      \"bathrooms\": 3102.0050868576163,\n      \"sqft_min\": 4475,\n      \"sqft_max\": 9623,\n      \"stories\": 3985,\n      \"garage\": 8184,\n      \"base_price\": 7512,\n      \"description\": \"string\",\n      \"images\": [\n        \"https://nwuqAqCAXQvFnRcJmQfls.domkTxs3.Y+.70FhlNp.9cX9KIGuburoLop\",\n        \"http://oiaeXfmGcwULAS.gmfTtoCYI\"\n      ],\n      \"floor_plan_pdf\": \"https://Bh.tcvMJw7,gAZN\"\n    },\n    {\n      \"plan_id\": \"string\",\n      \"name\": \"string\",\n      \"bedrooms\": 3107,\n      \"bathrooms\": 4788.610179499257,\n      \"sqft_min\": 5494,\n      \"sqft_max\": 3245,\n      \"stories\": 9803,\n      \"garage\": 1373,\n      \"base_price\": 542,\n      \"description\": \"string\",\n      \"images\": [\n        \"http://PpxfIqTlq.mdQqlySjMieucvLXR+JMMYkL-ypM+TyZAvUmBrXjmV0cAGMEisDi9hSIMusd\",\n        \"https://ODKCjgwFGPbhdvddqMxGsiRVrAcg.ylwOpwTKxX9M308JxiKrveL9iYh,8NoMRXnX\"\n      ],\n      \"floor_plan_pdf\": \"https://mgnfPzoCZvZZVDzCWiVwKnvploe.jiflyJ,wMElq2Ka5.TKwwFUmu.3ZUjrtQkgO-5lhrgPpNZ\"\n    }\n  ],\n  \"total\": 9837\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99004a63-59e7-4a24-84ef-eee99d109613",
+          "name": "Get Floor Plan",
+          "request": {
+            "name": "Get Floor Plan",
+            "description": {
+              "content": "Returns detailed floor plan information including dimensions, rooms, and structural options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "floor-plans",
+                ":plan_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "plan_id",
+                  "description": "(Required) Floor plan identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0883e0a0-92d8-4e58-8cee-bff02aeabc4a",
+              "name": "Floor plan details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans",
+                    ":plan_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plan_id",
+                      "description": "(Required) Floor plan identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plan_id\": \"string\",\n  \"name\": \"string\",\n  \"bedrooms\": 1935,\n  \"bathrooms\": 2914.4539649077074,\n  \"sqft_min\": 7950,\n  \"sqft_max\": 9844,\n  \"stories\": 7270,\n  \"garage\": 2897,\n  \"base_price\": 7954,\n  \"description\": \"string\",\n  \"images\": [\n    \"https://eUUXMWSsHQAxENtHw.trbJNa-7qrkyhBI1xTl5w5Y\",\n    \"https://bWsGokusgFGqGzgWrjwfrxDgeaRATdxmZ.vaZ2+b,3bSjJOkhdo5x,TMN+Cfp6q3Z+bE51rqPEi68KAtVX1fMA5JRn2j3KlBmu8sFux0hG3.3wwI8\"\n  ],\n  \"floor_plan_pdf\": \"https://LKmwuw.gmkMxhxTIWennmXK-6H5J-9IF-YXYEK+Wv\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47201be2-8351-449d-aba0-5957de8a8b3a",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "floor-plans",
+                    ":plan_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plan_id",
+                      "description": "(Required) Floor plan identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0e8018e0-bfee-40a9-bc10-8f0bf43f5de2",
+    "name": "Taylor Morrison Home Search Communities Floor Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}

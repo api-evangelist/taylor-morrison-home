@@ -1,0 +1,433 @@
+{
+  "item": [
+    {
+      "id": "e96f8ad4-1a3d-4f69-af4c-9f6d5bac82ae",
+      "name": "Communities",
+      "description": {
+        "content": "New home community search and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bba2317d-b97f-4dd9-a3ec-886b2c981e84",
+          "name": "List Communities",
+          "request": {
+            "name": "List Communities",
+            "description": {
+              "content": "Returns a list of active Taylor Morrison communities filtered by state, city, metro area, or price range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "communities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Two-letter state code filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "City name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "metro",
+                  "value": "<string>",
+                  "description": "Metropolitan area name"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_min",
+                  "value": "<integer>",
+                  "description": "Minimum home price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_max",
+                  "value": "<integer>",
+                  "description": "Maximum home price"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Minimum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum communities to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bdbb49f-ec2a-44e1-81a4-ecf84406053d",
+              "name": "List of communities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metro",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"communities\": [\n    {\n      \"community_id\": \"string\",\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"metro\": \"string\",\n      \"price_from\": 3401,\n      \"price_to\": 8034,\n      \"status\": \"sold-out\",\n      \"home_count\": 7123,\n      \"description\": \"string\",\n      \"images\": [\n        \"http://bvKlqeYaAcevQNznhtn.rfL0+d0FKjW+2TTb+lL71Y3wpr2bLpeYywvHiFhbHXB23r6O26MSqUlilsOlS,xG\",\n        \"http://blxsVxYMLvBePBrqDQ.tgiaILUPBdZRMeYghaa8OHFziC09CRtgHH9gb1,OEdK1vcjdYpGvsNMxVZ\"\n      ],\n      \"amenities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 6880.761099257921,\n      \"longitude\": 2190.5171149849325\n    },\n    {\n      \"community_id\": \"string\",\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"metro\": \"string\",\n      \"price_from\": 793,\n      \"price_to\": 7267,\n      \"status\": \"coming-soon\",\n      \"home_count\": 1690,\n      \"description\": \"string\",\n      \"images\": [\n        \"http://qlWSk.qakkR-usgfAtzG6DXFO4aBG8GSu2WPsila9y5bYcZ+IHhgxTYfJ5Vo.K.\",\n        \"https://PDGzMBhmmaKudhkbWGqJuFeavuYv.tqkNUJMRL+QLDVXnUAXeygBW9hYdvKFgi7dnaIF-dAJ\"\n      ],\n      \"amenities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 5124.052108729338,\n      \"longitude\": 1749.3446628043296\n    }\n  ],\n  \"total\": 4037,\n  \"limit\": 7094,\n  \"offset\": 2754\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23b0e01e-93fb-48a9-b362-19015160cfd3",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metro",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4787db4-489e-4da4-a9ac-43379c325e9f",
+          "name": "Get Community",
+          "request": {
+            "name": "Get Community",
+            "description": {
+              "content": "Returns detailed information about a specific Taylor Morrison community.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "communities",
+                ":community_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "community_id",
+                  "description": "(Required) Community identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e17a8f77-d27f-4bd6-b6c2-e379f9dd0c7d",
+              "name": "Community details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities",
+                    ":community_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "community_id",
+                      "description": "(Required) Community identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"community_id\": \"string\",\n  \"name\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"metro\": \"string\",\n  \"price_from\": 1051,\n  \"price_to\": 8858,\n  \"status\": \"selling\",\n  \"home_count\": 2910,\n  \"description\": \"string\",\n  \"images\": [\n    \"https://ond.hiujBRjODGBHXPlD8EXcnKkzxjA6QEE8mFWYmlm0Kr+AGNAvzw+rFQ-FV4Gc6-+zrjd\",\n    \"https://EDXRTjMfCPWzKWSwUmMCAiJkG.pssM\"\n  ],\n  \"amenities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"latitude\": 4542.564350226722,\n  \"longitude\": 8309.321702806725\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efbb201b-3412-4dbe-84aa-d920213497f1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "communities",
+                    ":community_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "community_id",
+                      "description": "(Required) Community identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bb6b4944-1bb8-41a8-aa41-ac6f3fa872f3",
+    "name": "Taylor Morrison Home Search Communities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}

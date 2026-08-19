@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taylor Morrison Home Search Communities Homes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Homes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Available Homes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/homes",
+            "params": [
+              {
+                "name": "community_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by community"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Home availability status"
+              },
+              {
+                "name": "bedrooms",
+                "value": "",
+                "type": "query",
+                "description": "Number of bedrooms"
+              },
+              {
+                "name": "bathrooms",
+                "value": "",
+                "type": "query",
+                "description": "Number of bathrooms"
+              },
+              {
+                "name": "price_min",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price"
+              },
+              {
+                "name": "price_max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price"
+              },
+              {
+                "name": "sqft_min",
+                "value": "",
+                "type": "query",
+                "description": "Minimum square footage"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum homes to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset"
+              }
+            ]
+          },
+          "docs": "Returns available homes (move-in ready and to-be-built) across communities."
+        },
+        {
+          "info": {
+            "name": "Get Home Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.taylormorrison.com/api/homes/:home_id",
+            "params": [
+              {
+                "name": "home_id",
+                "value": "",
+                "type": "path",
+                "description": "Home identifier"
+              }
+            ]
+          },
+          "docs": "Returns full details of a specific home including floor plan, lot, pricing, and availability."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

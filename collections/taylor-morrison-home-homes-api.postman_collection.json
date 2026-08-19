@@ -1,0 +1,447 @@
+{
+  "item": [
+    {
+      "id": "170bc776-f8c7-4d7c-82a2-95ab411a59a4",
+      "name": "Homes",
+      "description": {
+        "content": "Available homes and inventory",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb430130-fd92-48ed-8f1b-17eef198465e",
+          "name": "List Available Homes",
+          "request": {
+            "name": "List Available Homes",
+            "description": {
+              "content": "Returns available homes (move-in ready and to-be-built) across communities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "homes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "community_id",
+                  "value": "<string>",
+                  "description": "Filter by community"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Home availability status"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedrooms",
+                  "value": "<integer>",
+                  "description": "Number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathrooms",
+                  "value": "<number>",
+                  "description": "Number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_min",
+                  "value": "<integer>",
+                  "description": "Minimum price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_max",
+                  "value": "<integer>",
+                  "description": "Maximum price"
+                },
+                {
+                  "disabled": false,
+                  "key": "sqft_min",
+                  "value": "<integer>",
+                  "description": "Minimum square footage"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum homes to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7401297-ca1c-4679-b35b-f0e402881087",
+              "name": "List of available homes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"homes\": [\n    {\n      \"home_id\": \"string\",\n      \"community_id\": \"string\",\n      \"address\": \"string\",\n      \"status\": \"available\",\n      \"price\": 2157,\n      \"bedrooms\": 9844,\n      \"bathrooms\": 2583.244621965636,\n      \"sqft\": 2794,\n      \"stories\": 8604,\n      \"garage\": 8646,\n      \"floor_plan\": {\n        \"plan_id\": \"string\",\n        \"name\": \"string\",\n        \"bedrooms\": 9765,\n        \"bathrooms\": 1683.2038959634021,\n        \"sqft_min\": 2126,\n        \"sqft_max\": 135,\n        \"stories\": 4950,\n        \"garage\": 1727,\n        \"base_price\": 2797,\n        \"description\": \"string\",\n        \"images\": [\n          \"https://lHLwnPvZkuknNDcvvxupy.hfRj2l.zr4FcRk5eV2muUXEAnEl\",\n          \"https://zgUOCZIFu.rwqwF8UFjE8wrt0mn\"\n        ],\n        \"floor_plan_pdf\": \"http://kjTAtJvVTbOAJGNRcizP.lgnG.jE893,7wFMofGhq+f+pchz,Hmc5MeOREUoOnJZ176WPyBZ7NaZBU82A\"\n      },\n      \"images\": [\n        \"http://QasEQdTxvPSJrLyIsgwgACQMuH.mrjopGoz,bRZvOIyc6GzgambPu-iWU-VliGRU\",\n        \"http://wgHYKriDrYStPfBZjNJEgAQAUEI.srnkSUYWt5Q0SLvXLT11RTAIf-SU\"\n      ],\n      \"virtual_tour_url\": \"https://ubQsCtiQPxhfJP.hdQC5ee2,uiYycq32vHxH0eBHSuyY70TyLb,oCXH79SiKy,tHhviu,vx3uZ9c6-\"\n    },\n    {\n      \"home_id\": \"string\",\n      \"community_id\": \"string\",\n      \"address\": \"string\",\n      \"status\": \"under-construction\",\n      \"price\": 5869,\n      \"bedrooms\": 1235,\n      \"bathrooms\": 374.64996714548505,\n      \"sqft\": 8862,\n      \"stories\": 5480,\n      \"garage\": 6877,\n      \"floor_plan\": {\n        \"plan_id\": \"string\",\n        \"name\": \"string\",\n        \"bedrooms\": 6004,\n        \"bathrooms\": 9970.713533841255,\n        \"sqft_min\": 6284,\n        \"sqft_max\": 7336,\n        \"stories\": 8438,\n        \"garage\": 1966,\n        \"base_price\": 3042,\n        \"description\": \"string\",\n        \"images\": [\n          \"https://XWLEEorqv.plntB.p3r9FFrvLNoz04ws4F4vs0xS4GjJ8MtIZIMMiKI+tCNn4O+UHhTzWl\",\n          \"http://iSNKVSDsAStRsJfJZOQYukITC.qglx.G7ulUR.Fde,B2eCyLnR2JGB5iGdMTlfwbZyAbN\"\n        ],\n        \"floor_plan_pdf\": \"http://DfvWwIBIQHBCCO.twyqF4jgOCGHB6G0iLmq-MKqwLxVlpbYR8XmpOz,UUD9Pd06nY\"\n      },\n      \"images\": [\n        \"https://FBsljyAFWeurbNKaRLpqkXDBwzREHeKV.jsnnlbbc-Ojh7hRT0GllTFQLKGmTKUl9XPSk\",\n        \"https://frhiSwxKLmcXatfUChTtwhFNRBVKoq.wcoLBnyf6xNf9FVYm0Ro5,L4v-WQrXkJp-oVlX8tBL.LE,5fs61Jd-L6tRABEJhuu\"\n      ],\n      \"virtual_tour_url\": \"http://AJOorvKxtyUVbzncNlRuZmjsXMpo.ukW3Pn3FlzDNHKL8wEQMzxCqzsnMch93MkzQbqJhucTC4MttjaAztTS3wWSRVm5sUK9\"\n    }\n  ],\n  \"total\": 9124,\n  \"limit\": 7901,\n  \"offset\": 1611\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72e60382-5512-4dd8-a149-0f81b5224b64",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "community_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bedrooms",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bathrooms",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sqft_min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94cc2cc7-6acf-418e-b415-1877c6db9220",
+          "name": "Get Home Details",
+          "request": {
+            "name": "Get Home Details",
+            "description": {
+              "content": "Returns full details of a specific home including floor plan, lot, pricing, and availability.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "homes",
+                ":home_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "home_id",
+                  "description": "(Required) Home identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fe65fa2-3bb5-4ccd-9a53-eaf703b471a7",
+              "name": "Home details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes",
+                    ":home_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_id",
+                      "description": "(Required) Home identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"home_id\": \"string\",\n  \"community_id\": \"string\",\n  \"address\": \"string\",\n  \"status\": \"to-be-built\",\n  \"price\": 9293,\n  \"bedrooms\": 2125,\n  \"bathrooms\": 3868.3685221291953,\n  \"sqft\": 2055,\n  \"stories\": 260,\n  \"garage\": 9210,\n  \"floor_plan\": {\n    \"plan_id\": \"string\",\n    \"name\": \"string\",\n    \"bedrooms\": 7573,\n    \"bathrooms\": 9127.330263395295,\n    \"sqft_min\": 3084,\n    \"sqft_max\": 1751,\n    \"stories\": 4113,\n    \"garage\": 3163,\n    \"base_price\": 1111,\n    \"description\": \"string\",\n    \"images\": [\n      \"http://pwRpwDtDNRiehUPxQKbYPm.mnXK3\",\n      \"http://MDYWoBXKfBFEwQXFmxcoTTGaisRHe.fqqsYdUEpdS9NfyMIT8GuUCh8EyXh08WkT8BMqu8wBW6owozk5WarvG2Giyp\"\n    ],\n    \"floor_plan_pdf\": \"http://hXrXcelcoxtJUydWCxPUjArfRakJZp.xhrihxW8ob660ZBQ2zIS1vfQkyZAMX0MoUa+m\"\n  },\n  \"images\": [\n    \"https://xgRYpIvcqiSfjHXsLNdUbsqdkoHZutQXo.uryi,vlaoZ5XBtq9DX5fz2GpnskvW.1DZUk5TvgUXPvp8eUO4EUDF\",\n    \"http://mkmST.mrfJp6A,eb1vI9Y6xDVWsk87ga.IEPkAqzCyH16AqAXQdAc9\"\n  ],\n  \"virtual_tour_url\": \"https://LiERjJeBYXjPNVmPmOPjGIUajBImei.bopbJCc,qqRBvEzBLZ-\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d137318-fab6-4fe9-8d09-1ed94910fac0",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "homes",
+                    ":home_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_id",
+                      "description": "(Required) Home identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.taylormorrison.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c17d9bc-1223-418e-8a2d-1b0c327e11da",
+    "name": "Taylor Morrison Home Search Communities Homes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Taylor Morrison Home Corporation's API for searching new home communities, available homes, floor plans, and lot inventory. Powers the digital homebuying experience including the industry-first fully online to-be-built reservation system.\n\nContact Support:\n Name: Taylor Morrison",
+      "type": "text/plain"
+    }
+  }
+}
