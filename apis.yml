@@ -31,6 +31,11 @@ apis:
   - Finance
   - Homebuilding
   - Mortgage
+  - Real-Estate
+  tags_raw:
+  - Finance
+  - Homebuilding
+  - Mortgage
   - Real Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.taylormorrisonfunding.com/
@@ -44,6 +49,11 @@ apis:
 - aid: taylor-morrison-home:taylor-morrison-design-studio-api
   name: Taylor Morrison Design Studio API
   tags:
+  - Design
+  - Homebuilding
+  - Interior Design
+  - Real-Estate
+  tags_raw:
   - Design
   - Homebuilding
   - Interior Design
@@ -169,6 +179,13 @@ common:
   - type: Vocabulary
     url: vocabulary/taylor-morrison-home-vocabulary.yml
 tags:
+  - Homebuilding
+  - Real-Estate
+  - Fortune 1000
+  - New Homes
+  - Communities
+  - Mortgage
+tags_raw:
   - Homebuilding
   - Real Estate
   - Fortune 1000
