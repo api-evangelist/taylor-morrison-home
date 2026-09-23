@@ -1,12 +1,7 @@
 {
   "provider": "taylor-morrison-home",
   "sources": [
-    "taylor-morrison-home-communities-api-openapi.yml",
-    "taylor-morrison-home-design-api-openapi.yml",
-    "taylor-morrison-home-floor-plans-api-openapi.yml",
-    "taylor-morrison-home-homes-api-openapi.yml",
-    "taylor-morrison-home-lots-api-openapi.yml",
-    "taylor-morrison-home-reservations-api-openapi.yml"
+    "_original/taylor-morrison-home-search-openapi.yml"
   ],
   "outputs": [
     "taylor-morrison-home-communities-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "taylor-morrison-home-search-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "taylor-morrison-home-communities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "taylor-morrison-home-design-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "taylor-morrison-home-floor-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "taylor-morrison-home-homes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "taylor-morrison-home-lots-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "taylor-morrison-home-reservations-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

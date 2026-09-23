@@ -1,7 +1,9 @@
 ---
 title: Taylor Morrison Announces Date for First Quarter 2026 Earnings ...
 url: https://www.barchart.com/story/news/939225/taylor-morrison-announces-date-for-first-quarter-2026-earnings-release-and-webcast-conference-call
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Taylor Morrison Home" press release artificial intelligence'
 position: 3
 source: serpapi-google

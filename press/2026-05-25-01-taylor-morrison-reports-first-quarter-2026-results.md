@@ -1,7 +1,9 @@
 ---
 title: Taylor Morrison Reports First Quarter 2026 Results
 url: https://www.prnewswire.com/news-releases/taylor-morrison-reports-first-quarter-2026-results-302749452.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Taylor Morrison Home" press release artificial intelligence'
 position: 1
 source: serpapi-google

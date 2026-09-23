@@ -1,7 +1,9 @@
 ---
 title: Taylor Morrison Introduces Board Fellowship to Increase ...
 url: https://newsroom.taylormorrison.com/2023-02-16-Taylor-Morrison-Introduces-Board-Fellowship-to-Increase-Diversity-Among-Public-Companies
-date: '2026-05-25'
+published: '2023-02-16'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"Taylor Morrison Home" press release artificial intelligence'
 position: 2
 source: serpapi-google
