@@ -99,16 +99,14 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
     FloorPlan:
       type: object
       properties:
@@ -146,6 +144,15 @@ components:
           type: string
           format: uri
           description: PDF floor plan download URL
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
     FloorPlanList:
       type: object
       properties:
@@ -155,13 +162,6 @@ components:
             $ref: '#/components/schemas/FloorPlan'
         total:
           type: integer
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

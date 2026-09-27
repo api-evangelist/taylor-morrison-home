@@ -120,16 +120,33 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
+    HomeList:
       type: object
       properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
+        homes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Home'
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
     FloorPlan:
       type: object
       properties:
@@ -213,32 +230,15 @@ components:
           type: string
           format: uri
           description: 3D virtual tour URL
-    HomeList:
+    Error:
       type: object
       properties:
-        homes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Home'
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
   securitySchemes:
     apiKeyAuth:
       type: apiKey

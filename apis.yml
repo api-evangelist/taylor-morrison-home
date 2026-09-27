@@ -44,12 +44,13 @@ apis:
   - Finance
   - Homebuilding
   - Mortgage
-  - Real-Estate
+  - Real Estate
   tags_raw:
   - Finance
   - Homebuilding
   - Mortgage
   - Real Estate
+  - Real-Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.taylormorrisonfunding.com/
   properties:
@@ -65,12 +66,13 @@ apis:
   - Design
   - Homebuilding
   - Interior Design
-  - Real-Estate
+  - Real Estate
   tags_raw:
   - Design
   - Homebuilding
   - Interior Design
   - Real Estate
+  - Real-Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.taylormorrison.com/design-studio
   properties:
@@ -86,6 +88,8 @@ apis:
   humanURL: https://www.taylormorrison.com/
   baseURL: https://www.taylormorrison.com/api
   tags:
+  - Community
+  tags_raw:
   - Communities
   properties:
   - type: OpenAPI
@@ -193,10 +197,10 @@ common:
     url: vocabulary/taylor-morrison-home-vocabulary.yml
 tags:
   - Homebuilding
-  - Real-Estate
+  - Real Estate
   - Fortune 1000
   - New Homes
-  - Communities
+  - Community
   - Mortgage
 tags_raw:
   - Homebuilding
@@ -205,6 +209,7 @@ tags_raw:
   - New Homes
   - Communities
   - Mortgage
+  - Real-Estate
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
