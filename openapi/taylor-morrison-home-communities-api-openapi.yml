@@ -109,42 +109,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Rate limit exceeded
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    CommunityList:
-      type: object
-      properties:
-        communities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Community'
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
     Community:
       type: object
       properties:
@@ -196,6 +161,41 @@ components:
           type: number
         longitude:
           type: number
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
+    CommunityList:
+      type: object
+      properties:
+        communities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Community'
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
