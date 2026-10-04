@@ -51,15 +51,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
     Lot:
       type: object
       properties:
@@ -96,6 +87,15 @@ components:
             $ref: '#/components/schemas/Lot'
         total:
           type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
   responses:
     Unauthorized:
       description: Authentication required

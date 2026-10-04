@@ -120,7 +120,33 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    HomeList:
+      type: object
+      properties:
+        homes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Home'
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
     FloorPlan:
       type: object
       properties:
@@ -158,28 +184,6 @@ components:
           type: string
           format: uri
           description: PDF floor plan download URL
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
-    HomeList:
-      type: object
-      properties:
-        homes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Home'
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
     Home:
       type: object
       properties:
@@ -226,19 +230,15 @@ components:
           type: string
           format: uri
           description: 3D virtual tour URL
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
   securitySchemes:
     apiKeyAuth:
       type: apiKey
