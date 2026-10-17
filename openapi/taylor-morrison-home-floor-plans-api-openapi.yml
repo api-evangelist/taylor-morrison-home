@@ -100,6 +100,15 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error description
     FloorPlan:
       type: object
       properties:
@@ -146,15 +155,6 @@ components:
             $ref: '#/components/schemas/FloorPlan'
         total:
           type: integer
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-          description: Error code
-        message:
-          type: string
-          description: Error description
   responses:
     NotFound:
       description: Resource not found

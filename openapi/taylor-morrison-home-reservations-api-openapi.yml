@@ -81,6 +81,12 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: Invalid request
       content:
@@ -93,44 +99,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Reservation:
-      type: object
-      properties:
-        reservation_id:
-          type: string
-          description: Unique reservation identifier
-        status:
-          type: string
-          enum:
-          - pending
-          - confirmed
-          - in-contract
-          - cancelled
-        community_id:
-          type: string
-        plan_id:
-          type: string
-        lot_id:
-          type: string
-        home_id:
-          type: string
-        base_price:
-          type: integer
-        deposit_amount:
-          type: integer
-        estimated_close_date:
-          type: string
-          format: date
-        created_at:
-          type: string
-          format: date-time
     ReservationRequest:
       type: object
       required:
@@ -176,15 +145,37 @@ components:
                 type: string
               quantity:
                 type: integer
-    ReservationList:
+    Reservation:
       type: object
       properties:
-        reservations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Reservation'
-        total:
+        reservation_id:
+          type: string
+          description: Unique reservation identifier
+        status:
+          type: string
+          enum:
+          - pending
+          - confirmed
+          - in-contract
+          - cancelled
+        community_id:
+          type: string
+        plan_id:
+          type: string
+        lot_id:
+          type: string
+        home_id:
+          type: string
+        base_price:
           type: integer
+        deposit_amount:
+          type: integer
+        estimated_close_date:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
     Error:
       type: object
       properties:
@@ -194,6 +185,15 @@ components:
         message:
           type: string
           description: Error description
+    ReservationList:
+      type: object
+      properties:
+        reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+        total:
+          type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey
